@@ -1,0 +1,59 @@
+<p>Over the time, I need to manipulate a lot of data on a Linux cluster. Some of these manipulations actually read/write data, whereas some are essentially file system operations, such as downloading the files.<br />
+Here I present a list of similar operations suitable for HPC using pbs job approach whenever possible.<br />
+I do not attempt to include all possible methods but only the ones that I find useful and easy to prepare in seconds.<br />
+<strong>Download</strong><br />
+The most efficient way to download MODIS alike data using HPC.<br />
+wget -r –no-parent -R “index.html*” –retr-symlinks -A “*.nc” ftp-url<br />
+wget -r –no-parent -R “index.html*” -A “MOD17A2.A2000*.hdf” -A “MOD17A2.A2000*.xml” http-url<br />
+wget -r –no-parent -R “index.html*” -A “MOD17*.hdf” -A “MOD17*.xml” http-url<br />
+You can basically setup filter for file type, year and granule id.</p>
+
+<p>A live example:<br />
+///==========================================================<br />
+#!/bin/bash                       <br />
+#PBS -l nodes=1:ppn=1                     <br />
+#PBS -l naccesspolicy=singleuser       <br />
+#PBS -l walltime=40:00:00                   <br />
+#PBS -M your email address<br />
+#PBS -m ae             <br />
+#PBS -N download                         <br />
+#PBS -q standby                           <br />
+cd $PBS_O_WORKDIR<br />
+wget -r –no-parent  -R “index.html*”   –retr-symlinks  -A “*.tar” ftp://somwhere<br />
+///==========================================================</p>
+
+<p><strong>Compress and extract </strong><br />
+Examples:<br />
+///==========================================================<br />
+#!/bin/bash                            <br />
+#use this script to extract tar files under the sub directory     <br />
+for dir in <code class="highlighter-rouge">find -mindepth 1 -maxdepth 1 -type d</code><br />
+do<br />
+    cd $dir<br />
+    echo $dir<br />
+    tar xf *.tar ./<br />
+    cd ..<br />
+done<br />
+///==========================================================<br />
+#!/bin/bash</p>
+<h1 id="pass-the-name-of-the-file-to-unpack-on-the-command-line-1">Pass the name of the file to unpack on the command line $1</h1>
+<p>for file in *.gz<br />
+do<br />
+    gunzip -d “$file”<br />
+done<br />
+///==========================================================</p>
+
+<p><strong>Search</strong><br />
+grep -rnw ‘/path/to/somewhere/’ -e “pattern”<br />
+find . -maxdepth 1 -name “*string*” -print<br />
+<strong>Comiple</strong><br />
+make &amp;&gt; results.txt</p>
+
+<p><strong>Count</strong>  <br />
+find . -name ‘*.cpp’ | xargs wc -l</p>
+
+<p><strong>Debug</strong><br />
+qsub -I -lnodes=1:ppn=20 -lwalltime=04:00:00 -q boss  -X</p>
+
+<p>Simply organize these above bash script and replace with commands, most file system related tasks can be resolved. I will add more related scripts later.</p>
+

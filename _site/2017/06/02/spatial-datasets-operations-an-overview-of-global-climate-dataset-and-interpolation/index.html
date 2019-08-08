@@ -1,0 +1,92 @@
+<p>Climate dataset is literally the most important data in climate change research. Great efforts have been made to prepare climate dataset over the decades.</p>
+
+<p>In my recent project, I need to prepare some climate dataset at global scale. Then I have to take some time to finish a review of current state of climate dataset at global scale.</p>
+
+<p>First, I want to emphasize “global scale” including both arctic and antarctic. Because I will use this data in a three-dimensional ecosystem simulation, a special configuration of the data structure will be used, which is completely different from traditional approaches.</p>
+
+<p>Second, where or how can we get the climate data?</p>
+
+<p>The easiest source we can turn to is existing global climate dataset, such as CRU dataset, NCEP dataset. I try not to get into details of these data but rather list the source and state some critical aspects that we have to take into consideration.</p>
+
+<p>CRU:<br />
+<a href="http://www.cru.uea.ac.uk/data">http://www.cru.uea.ac.uk/data</a><br />
+<a href="http://www.ipcc-data.org/observ/clim/cru_climatologies.html">http://www.ipcc-data.org/observ/clim/cru_climatologies.html</a><br />
+NCEP:<br />
+<a href="https://www.esrl.noaa.gov/psd/data/reanalysis/reanalysis.shtml">https://www.esrl.noaa.gov/psd/data/reanalysis/reanalysis.shtml</a><br />
+ECMWF<br />
+<a href="https://www.ecmwf.int/en/research/climate-reanalysis">https://www.ecmwf.int/en/research/climate-reanalysis</a><br />
+WorldClim<br />
+<a href="http://www.worldclim.org/">http://www.worldclim.org/</a></p>
+
+<p>Pros:</p>
+
+<ul>
+  <li>Easy to use</li>
+  <li>Global coverage</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+  <li>Missing polar regions</li>
+  <li>Coarse resolution</li>
+</ul>
+
+<p>Based on meteorology site observations, many spatial interpolation methods can also be used to produce spatial dataset.<br />
+IDW<br />
+<a href="https://en.wikipedia.org/wiki/Inverse_distance_weighting">https://en.wikipedia.org/wiki/Inverse_distance_weighting</a><br />
+Kriging<br />
+<a href="https://en.wikipedia.org/wiki/Kriging">https://en.wikipedia.org/wiki/Kriging</a></p>
+
+<p>Pros:</p>
+
+<ul>
+  <li>Easy to implement</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+  <li>Data not well distributed</li>
+  <li>Algorithm uncertainty</li>
+</ul>
+
+<p>There are also advanced tools can be used to prepare climate data.<br />
+ANUSPLIN<br />
+<a href="http://fennerschool.anu.edu.au/research/products/anusplin-vrsn-44">http://fennerschool.anu.edu.au/research/products/anusplin-vrsn-44</a><br />
+PRISM<br />
+<a href="http://www.prism.oregonstate.edu/">http://www.prism.oregonstate.edu/</a></p>
+
+<p>Pros:</p>
+
+<ul>
+  <li>Could potential on global scale</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+  <li>Computational demand</li>
+  <li>Hard to implement </li>
+</ul>
+
+<p>Recently, Artificial Neural Network has also been used for spatial interpolation. But current tests show that ANN may not be as good as traditional approaches.</p>
+
+<p>Pros:</p>
+
+<ul>
+  <li>Easy to use</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+  <li>Uncertainty</li>
+</ul>
+
+<p>I want to highlight that our use of latitude/longitude in spatial resolution will cause issues in polar regions. This is because of the underlying mathematics definition of latitude/longitude. There are a few solutions to this issue but that is currently out of the scope in this post. I will provide some hint here that may be used to address this issue.<br />
+<a href="http://www.discreteglobalgrids.org/">http://www.discreteglobalgrids.org/</a></p>
+
+<p>So what could potentially be the best choice?<br />
+As for now, I see the potential in ANN since it is nonlinear and could potentially performance well compared with traditional approaches. </p>
+

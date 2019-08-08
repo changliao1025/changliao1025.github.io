@@ -1,0 +1,52 @@
+<p>This is a live example from the project I am working right now. Good luck if you are following!<br />
+In order to speed my Anusplin program, I decided to use OpenMP. <a href="http://fennerschool.anu.edu.au/research/products/anusplin-vrsn-44">Anusplin</a> is a package for climate data preparation.</p>
+
+<p>My program was written in C++ as usual. C++ itself is fast, but Anusplin program takes a long time to run for approximately 50K+ simulations. Previously I set up some system pause (0.1second) between each run. Let’s see what OpenMP can do.</p>
+
+<p>There are many guide of OpenMP online.<br />
+First you need to know what’s the GCC version you get, such as<br />
+///===========================================<br />
+gcc -v<br />
+Using built-in specs.<br />
+COLLECT_GCC=gcc<br />
+COLLECT_LTO_WRAPPER=/apps/rhel6/gcc/5.2.0/libexec/gcc/x86_64-unknown-linux-gnu/5.2.0/lto-wrapper<br />
+Target: x86_64-unknown-linux-gnu<br />
+Configured with: /tmp/aai/gcc-5.2.0/configure –prefix=/apps/rhel6/gcc/5.2.0 –enable-languages=c,c++,fortran –enable-shared –enable-threads=posix –disable-checking –disable-multilib –with-system-zlib –enable-__cxa_atexit –disable-libunwind-exceptions –enable-java-awt=gtk –with-gmp=/apps/rhel6/gcc/5.2.0/gmp-6.1.0 –with-mpfr=/apps/rhel6/gcc/5.2.0/mpfr-3.1.3 –with-mpc=/apps/rhel6/gcc/5.2.0/mpc-1.0.3<br />
+Thread model: posix<br />
+gcc version 5.2.0 (GCC) <br />
+///===========================================<br />
+Usually the higher, the better, but you may need to double check.<br />
+Then here is the OpenMP version support in different versions of GCC.<br />
+<a href="https://gcc.gnu.org/wiki/openmp">https://gcc.gnu.org/wiki/openmp</a></p>
+
+<p>Next, I will follow this <a href="http://bisqwit.iki.fi/story/howto/openmp/">guide</a> if possible:<br />
+First, I need to enable OpenMP compiler flag in my makefile as: (remember to backup the makefile if you want)<br />
+<strong>g++ tmp.cpp -fopenmp</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>Then I added the simplest control to my for loop:</p>
+
+<p><strong>#pragma omp parallel for</strong></p>
+
+<p>Save the source code and re-compile.</p>
+
+<p>My first error:</p>
+
+<p>invalid exit from OpenMP structured block.</p>
+
+<p>My second error:</p>
+
+<p>undefined reference to `GOMP_parallel_start<br />
+(You need to link with -fopenmp. Your makefile doesn’t provide that flag on the linker step. Just add -fopenmp to your LDFLAGS)</p>
+
+<p>After fixing these two errors within one minute, the re-compile was successful.</p>
+
+<p>However, there is an error thrown out as:<br />
+*** glibc detected *** ./anusplin_openmp: double free or corruption (fasttop): 0x00002b8144000af0 ***</p>
+
+<p>So after some research, I have set a few variables as private in the OpenMP and everything works now.</p>
+
+<p>By the way, if you have troubles with memory issues brought out by OpenMP, you can try <a href="http://valgrind.org/docs/manual/quick-start.html">Valgrind</a>.</p>
+

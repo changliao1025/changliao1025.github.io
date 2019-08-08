@@ -1,0 +1,94 @@
+<p>IDL, unlike C++, has its own approach and principle when handling variables across routines. These features are often very different with the variable scope within C++.<br />
+I will try to answer several key questions and prove them using simple demos.<br />
+Question 1: Will the value of a variable be changed after it’s passed into a function and changed inside? <br />
+Demo:<br />
+;;………………………………………………………………………….<br />
+PRO variable_change<br />
+a=1.0<br />
+b=2.0<br />
+PRINT,’Before the operation, a is ‘,a<br />
+c=plus(a,b)<br />
+PRINT,’After the operation, a is ‘,a<br />
+END<br />
+FUNCTION plus,a,b<br />
+a=a+b<br />
+RETURN,a<br />
+END<br />
+And the IDL Console output:<br />
+Before the operation, a is 1.00000<br />
+After the operation, a is 3.00000<br />
+;;………………………………………………………………………….<br />
+Conclusion:<br />
+If the value of a variable has been changed inside a routine, it will remains changed outside. Question 2: What if this variable is not even passed into any routine, but the routine has a variable which has the same name?<br />
+Demo:<br />
+;;………………………………………………………………………….<br />
+FUNCTION plus, m, n<br />
+a= m+n<br />
+print, a<br />
+RETURN, a<br />
+END<br />
+PRO variable_test<br />
+a = 1<br />
+PRINT,a<br />
+b =2<br />
+c= 3<br />
+d= plus(b,c)<br />
+PRINT,d<br />
+PRINT,a<br />
+END<br />
+a is 1 a is 5 d is 5 a is 1<br />
+;;………………………………………………………………………….<br />
+Conclusion: If it’s not passed, it won’t change even other routines have the same variable name.<br />
+Tips:<br />
+Whenever you have many variables which may be passed to other routines, try not to use the same variable name as much as possible. A simple solution is to get a copy of the variable before changing it.<br />
+Question 3: Then how to define a global variable?Answer: IDL provides common and Defsysv to handle global variables.<br />
+Demo:<br />
+;;………………………………………………………………………….<br />
+PRO demo<br />
+COMMON exponent,m<br />
+m=2.0<br />
+result=QROMO(‘integration’, 1.0, 2.0)<br />
+PRINT,’The integration result is’, result<br />
+END<br />
+FUNCTION integration,x<br />
+;To integrate the expression: y=x^m+1<br />
+;However variable m is uncertain.<br />
+COMMON exponent,m<br />
+result=x^m+1<br />
+RETURN, result<br />
+END<br />
+And the IDL Console output:<br />
+The integration result is 3.33333<br />
+;;………………………………………………………………………….<br />
+Discussion:<br />
+By reviewing the IDL Helper, as we could see, the COMMON defines a shared block to store the variables. And there are more than one way to refer the shared block. In the above demo, you can also simply use: COMMON exponent in the integration function without specify the m. <br />
+Besides, if a shared block is defined, it can’t be changed in number and type in the other functions. Also, the sequence of all variables could be exactly the same as you refer.<br />
+Tips:<br />
+Though the COMMON is a traditional way to share variables, it could also cause conflicts if not configured well.<br />
+In the Defsysv case:<br />
+The IDL provides system variable way to store global variables as well. The defsysv procedure  could create a new system variable with initial value if configured.<br />
+Demo:<br />
+;;………………………………………………………………………….<br />
+PRO demo<br />
+DEFSYSV, ‘!m’, 2.0<br />
+result=QROMO(‘integration’, 1.0, 2.0)<br />
+PRINT,’The integration result is’, result<br />
+END<br />
+FUNCTION integration,x<br />
+;To integrate the expression: y=x^m+1<br />
+;However variable m is uncertain.<br />
+result=x^!m+1<br />
+RETURN, result<br />
+END<br />
+The console output as:<br />
+The integration result is 3.33333<br />
+;;………………………………………………………………………….<br />
+So it is the same with the common case. And the only thing I did was ‘DEFSYSV, ‘!m’, 2.0  ’. It seems that this approach is somewhat easier than ‘common’ way.<br />
+However, once defined , the system variable can not be destroyed until the whole procedure ends.<br />
+What if the variable we want to configure is a vector?<br />
+The demo will indicate that the ‘defsysv’ won’t allow it. But ‘common’ could!<br />
+Of course, other approaches like uvalue and sav file could also provide similar function.<br />
+Especially the uvalue method is frequently used along with defsysv.<br />
+Hope it can help!<br />
+I will present a specific example to solve a complex nonlinear equation using the above method in other posts.</p>
+

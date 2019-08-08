@@ -1,0 +1,28 @@
+<p>Parameter estimation, also referred as model calibration, usually involves with model simulations with different sets of data and parameters.</p>
+
+<p>A common practice is to replace the parameter within model inputs with different values and calculate the minimum objective function, which is used in <a href="http://www.pesthomepage.org/">PEST</a>.</p>
+
+<p>Most of the time, parameter estimation can be very computational. Therefore, a better data format can reduce I/O burden and improve the efficiency.</p>
+
+<p>A typical example is as follows:</p>
+
+<p>To calibrate the groundwater modeling such as MODFLOW, a few template files much be prepared for PEST package. Since PEST requires that all ASCII file must NOT exceed 2000 in width. This means that all the template files must be written with care.<br />
+For simulations with large spatial domains, the input files are usually large as well. And it is very important to keep the data format well designed that the accuracy and efficiency could be compromised.</p>
+
+<p>On the other hand, PEST also reads the output from model simulation. It is also important to design an efficient format for the instruction file.</p>
+
+<p>Further analysis of these types of data requires other scripts for I/O, especially when encountered with binary data.</p>
+
+<p>So, the general guidelines would as follows:</p>
+
+<ol>
+  <li>Use special characters (white space) to separate individual data values whenever possible for inputs;</li>
+  <li>Use fixed format for model output;</li>
+  <li>Use exponent scientific format when values are large or small;</li>
+  <li>Avoid unnecessary space when possible;</li>
+  <li>Use advanced format such as binary if possible.</li>
+</ol>
+
+<p>I will provide a real-life format example for MODFLOW simulation later.</p>
+
+<p>Comments are welcome.</p>

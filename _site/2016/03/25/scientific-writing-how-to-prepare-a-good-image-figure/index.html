@@ -1,0 +1,53 @@
+<p>“A picture is worth a thousand words”, from <a href="https://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words">Wikipedia</a>, unveils the importance of figures in writing.<br />
+There are many types of figures or pictures, and in the field of Earth Science, image figure is one of the most important types.<br />
+By image figure, I mean a figure composed of matrix, such as</p>
+
+<p><img src="/assets/201601.gif" alt="https://www.ncdc.noaa.gov/sotc/service/global/map-blended-mntp/201601.gif" /></p>
+
+<p><a href="https://www.ncdc.noaa.gov/sotc/global/201601">Link</a> of the image.</p>
+
+<p>(A selfie is also an image, but it is not commonly seen in scientific writing. Although the above figure is taken from the website, it is publication-ready in my opinion.)</p>
+
+<p>So what makes a good  image figure? The figure above actually gives a good example, and we can see what are the principle elements in this figure.</p>
+
+<ul>
+  <li>A clear and concise title</li>
+  <li>An appropriate map projection</li>
+  <li>A beautiful color bar and data presentation</li>
+  <li>Adequate description (data source, etc.)</li>
+</ul>
+
+<p>Even without supplementary material, I believe most readers can understand this figure without difficulties.</p>
+
+<p>So where are the challenges? <br />
+Usually we can easily prepare the title, projection and description with care. The challenging part is the color presentation of the matrix data.</p>
+
+<p>For example, if the above image is rendered using black and white, I think all of us will be disappointed (this is not photography).<br />
+How about other color scale, such as from green to yellow? Maybe not a good idea.<br />
+I think now we almost get to the point that colors matter.</p>
+
+<p>We all know that nearly all colors can be decomposed into Red, Green and Blue and there is more than one million colors we can use. But in real life, we seldom need that much.<br />
+A commonly used approach to get the best color for the data is using the color table, or the color look up table, through which only a number of colors (usually less than one thousand) are used for mapping.<br />
+The selections of these colors are also based on a few approaches. Anyway, we can produce much nicer color tables such as this:</p>
+
+<p><img src="/assets/BlAqGrYeOrReVi200_labelbar.500.png" alt="" /></p>
+
+<p><a href="http://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml">Link</a>of the image.<br />
+The above color table contains exactly 200 colors. And if the matrix contains 200 unique values, the image would be perfectly displayed using these colors.</p>
+
+<p><a href="https://changliao.files.wordpress.com/2016/03/d4c02-matrix.png"><img src="/assets/d4c02-matrix.png?w=300" alt="" /></a></p>
+
+<p>However, most of time, our data has way too many unique values. The stretch method is then used to scale our data before mapping them. There are also a few different stretch methods for different purposes. ArcGIS Map has some detailed explanation of these methods <a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/stretch-function.htm">here</a>.</p>
+
+<p>Most of time, a linearly stretch will work, but sometimes, it does not work due to the data distribution.</p>
+
+<p>However, when the data is stretched, we need to be careful with the color table. Because interpretation of the value from the color table need to be stretched as well. In this case, it has become not intuitive for us to guess the value from the map since its color may not be linearly stretched.</p>
+
+<p>Then the classification method comes into the play. If we can classify the matrix data to a few classes, then it would be pretty straight forward to guess the value range from its color. Besides, classification means that we will only have a few colors, usually less than 20.</p>
+
+<p>There are also quite a few methods of classification.</p>
+
+<p>I will leave this work to the readers.</p>
+
+<p>To be continued…</p>
+

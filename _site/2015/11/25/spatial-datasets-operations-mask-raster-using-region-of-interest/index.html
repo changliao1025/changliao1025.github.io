@@ -1,0 +1,67 @@
+<p>Climate change related studies usually involve spatial datasets extraction from a larger domain.<br />
+In this article, I will briefly discuss some potential issues and solutions.</p>
+
+<p>In the most common scenario, we need to extract a raster file using a polygon based shapefile. And I will focus as an example.</p>
+
+<p>In a typical desktop application such as <a href="https://desktop.arcgis.com/en/desktop/">ArcMap</a>or <a href="http://www.exelisvis.com/ProductsServices/ENVIProducts/ENVI.aspx">ENVI</a>, this is usually done with a tool called <a href="http://resources.arcgis.com/en/help/main/10.1/index.html#//00170000009n000000">clip</a>or <a href="http://resources.arcgis.com/EN/HELP/MAIN/10.1/index.html#//009z0000002n000000">extract</a>using mask or <a href="https://www.exelisvis.com/docs/regionofinteresttool.html">ROI</a>.</p>
+
+<p>Before any analysis can be done, it is the best practice to project all datasets into the same projection.</p>
+
+<p>If you are lucky enough, you may find that the polygon you will use actually matches up with the raster grid perfectly. But it rarely happens unless you created the shapefile using “<a href="http://resources.arcgis.com/EN/HELP/MAIN/10.1/index.html#//00170000002q000000">fishnet</a>” or other approaches.</p>
+
+<p>What if luck is not with you? The algorithm within these tool usually will make the best estimate of the value based on the location. The nearest re-sample, but not limited to, will be used to calculate the value. But what about the output location of the new data. Since the output will also be a raster with the same resolution, it the best solution that the output raster can match up with input raster perfectly.</p>
+
+<p>Another issue is the efficiency because we usually have more than one raster need to be extracted from. Apparently this could be done using programming. Since ArcGIS doesn’t support quite well on Linux, it is very naturally we use IDL/ENVI to achieve the task. In ENVI, the concept of ROI is used to extract raster. However there is another issue, ROI and the input raster have a one to one relation, which means that you can’t use one single ROI to extract all the raster. The good news is that we can dynamically create ROI from shapefile using APIs.</p>
+
+<p>There are some articles online stating that you can open a shapefile directly and store it as the FID, which can be used as the mask. It is NOT going to work. Instead, you need to create a shapefile object and retrieve all the boundary locations, then you can get all the values needed.The last step will be save the data with spatial reference.</p>
+
+<p>Some incomplete demo code using IDL is listed here:</p>
+
+<ol>
+  <li><em>       </em>    ;;Read shapefile</li>
+  <li>           oshp = OBJ_NEW(‘IDLffshape’, shapefile_in)</li>
+  <li>           oshp -&gt; GetProperty, n_entities = n_ent, Attribute_info = attr_info, $</li>
+  <li>                                n_attributes = n_attr, Entity_type = ent_type</li>
+  <li>           roi_shp = LONARR(n_ent)</li>
+  <li>           FOR ishp = 0, n_ent - 1 DO BEGIN</li>
+  <li>              entitie = oshp -&gt; GetEntity(ishp)</li>
+  <li>              ;;Check polygon</li>
+  <li>              IF entitie.SHAPE_TYPE EQ 5 THEN BEGIN</li>
+  <li>                 record = *(entitie.VERTICES)</li>
+  <li>                 ;;Convert coordinates</li>
+  <li>                 ENVI_CONVERT_FILE_COORDINATES, fid_in, xmap, ymap, record[0, *], record[1, *]</li>
+  <li>                 ;;Create ROI</li>
+  <li>                 roi_shp[ishp] = ENVI_CREATE_ROI(ns = ns_in, nl = nl_in)</li>
+  <li>                 ENVI_DEFINE_ROI, roi_shp[ishp], /polygon, xpts = REFORM(xmap), ypts = REFORM(ymap)</li>
+  <li>                 IF ishp EQ 0 THEN BEGIN</li>
+  <li>                    ;;nearest sampling is used</li>
+  <li>                    xmin = ROUND(MIN(xMap))</li>
+  <li>                    yMin = ROUND(MIN(yMap))</li>
+  <li>                 ENDIF ELSE BEGIN</li>
+  <li>                    ;;there should be only one polygon in most cases</li>
+  <li>                    RETURN</li>
+  <li>                 ENDELSE</li>
+  <li>              ENDIF</li>
+  <li>              oshp -&gt; DestroyEntity, entitie</li>
+  <li>           ENDFOR</li>
+  <li>           ;;apply the mask</li>
+  <li>           ENVI_MASK_DOIT, AND_OR = 1, /IN_MEMORY, ROI_IDS = roi_shp, $</li>
+  <li>                           ns = ns_in, nl = nl_in, /inside, $</li>
+  <li>                           r_fid = fid_mask</li>
+  <li>           ;;define the output raster array</li>
+  <li>           dims_mask = [-1, xMin, (xMin + ncol - 1), yMin, (ymin + nrow - 1)]</li>
+  <li>           m_pos = [0]</li>
+  <li>           ;;subset the input raster and save it within the memory</li>
+  <li>           filename_out = year_out + !slash + prefix_out + year_str + day_str + envi_extension</li>
+  <li>           ENVI_MASK_APPLY_DOIT, FID = fid_in, POS = pos, DIMS = dims_mask, $</li>
+  <li>                                 M_FID = fid_mask, M_POS = m_pos, VALUE = missing_value, /in_memory, $</li>
+  <li>                                 R_FID = fid_out</li>
+  <li>           ENVI_FILE_QUERY, fid_out, ns = ns_out, nl = nl_out, nb = nb_out, bname = bname_out, dims = dims_out</li>
+  <li>           data = ENVI_GET_DATA(fid = fid_out, dims = dims_out, pos = pos)</li>
+  <li>           ;;output with pre-defined spatial reference</li>
+  <li>           ENVI_WRITE_ENVI_FILE, FLOAT(data), map_info = map_info, out_name = filename_out, $</li>
+  <li>                                 nb = nb_out, ns = ncol, nl = nrow, OUT_DT = 4</li>
+</ol>
+
+<p>Feel free to try it out and give me feedback.</p>
+

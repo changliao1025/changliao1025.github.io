@@ -1,0 +1,24 @@
+<p>I have to use ArcSWAT to prepare some SWAT model simulation inputs. And the experience wasn’t exactly good (maybe we need a different tool to do this the right way).</p>
+
+<p>Below I listed a few issues I have encountered and potentially fixed:</p>
+
+<ul>
+  <li>Failed to create raster dataset. This issue might be related to permission control on Windows.</li>
+</ul>
+
+<p>Based on my experience, it is best to create the project under the root directory using the ArcSWAT interface. Do not create the directory outside using other method (WSL mkdir caused this error multiple times on my Windows 10).</p>
+
+<p><a href="https://changliao.files.wordpress.com/2019/02/baf57-watershed_error.png"><img src="/assets/baf57-watershed_error.png?w=300" alt="" /></a></p>
+
+<ul>
+  <li>Object reference not set. This issue is often related to the above issue. If the DEM was successfully, you should not receive this error.</li>
+</ul>
+
+<p><a href="https://changliao.files.wordpress.com/2019/02/98d72-arcmaperror001.png"><img src="/assets/98d72-arcmaperror001.png?w=300" alt="" /></a></p>
+
+<ul>
+  <li>SWAT check error: SWAT check version may not be compatiable with the latest SWAT version. For example, check this discussion: <a href="https://groups.google.com/forum/#!topic/swatuser/aSsSeJVIrvU">https://groups.google.com/forum/#!topic/swatuser/aSsSeJVIrvU</a></li>
+</ul>
+
+<p>I will keep adding related issues until the project is finished.</p>
+
