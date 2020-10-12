@@ -11,36 +11,72 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. School of Remote Sensing and Information Engineering, Wuhan University, 2009
+* M.S. School of Remote Sensing and Information Engineering, Wuhan University. 2011
+       Institute of Geographic Sciences and Natural Resources Research, Beijing. 2011
+* Ph.D Department of Earth, Atmospheric, and Planetary Sciences, Purdue University. 2017
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
 
-* Fall 2015: Research Assistant
+* 2020-: Earth Scientist
+  * Pacific Northwest National Laboratory
+  * Projects: 
+    * Hillslope-based subsurface lateral groundwater flow model (H2SC) in the Next-Generation Ecosystem Experiments (NGEE)-Tropics project. 
+    * Model for Prediction Across Scales (MPAS) mesh-based flow routing model in DOE’s Integrated Coastal Modeling (ICoM) project. 
+* 2017-2020: Postdoc Associate
   * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+  * Projects: 
+    * Hillslope-based subsurface lateral groundwater flow model (H2SC) in the Next-Generation Ecosystem Experiments (NGEE)-Tropics project. This model is implemented within Department Of Energy (DOE)’s Energy Exascale Earth System Model (E3SM).  
+    * Hexagonal grid-based surface hydrology watershed delineation model (HexWatershed) in a Laboratory Directed Research and Development (LDRD) project. This model resolves several long-standing issues in hydrology and closes the gap between watershed hydrology and global scale hydrology.
+    * Model for Prediction Across Scales (MPAS) mesh-based flow routing model in DOE’s Integrated Coastal Modeling (ICoM) project. This model provides a consistent framework to couple land, river and ocean using a unified mesh.
+    * Pollutant transport using integrated surface water and groundwater model simulation (SWAT-MODFLOW-MT3D). 
+  * Supervisor: L Ruby Leung
+* 2012-2017: Research Assistant
+  * Purdue University
+  * Projects: 
+    * Three-dimensional water and carbon cycle modeling at high spatial-temporal resolutions.
+    * Quantifying the role of permafrost and snowmelt in arctic hydrology using integrated surface water and groundwater modeling.
+    * Estimates of reduction of global plant production due to drought impacts.
+  * Supervisor: Qianlai Zhuang
+
+* 2009-2011: Research Assistant
+  * Institute of Geographic Sciences and Natural Resources Research
+  * Projects:
+    * The integrated assessment system of the grassland ecosystem in the Three-River Headwaters region.
+    * Estimates of photosynthesis active radiation using remote sensing data.
+
+  * Supervisor: Quanqin Shao
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Rich experiences (2005~present) in interdisciplinary research (Ecosystem, Hydrology, Geographic Information System (GIS), Remote Sensing (RS), etc.).
+* Rich experiences (2009~present) in scientific model developments and applications.
+* Rich experiences (2011~present) in high performance computing (HPC) (90% studies and work were conducted * under HPC).
+* Rich experiences (2012~present) in model calibration and uncertainty analysis (PEST and SCE-UA, etc.).
+* Skilled (2005~present) in programming (C/C++, Fortran, Python, and IDL, etc.).
+* Skilled (2005~present) in spatial dataset operations. 
+* Skilled (2009~present) in computer visualization (IDL/Python graphics and VTK, etc.).
+* Teaching assistant for Purdue EAS 116 Earthquakes and Volcanoes.
+* Leadership experiences in multiple projects and organizations.
+
 
 Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
+
+Softwares and Applications
+======
+* A three-dimensional water and carbon cycle ecosystem model (ECO3D) (C++ and OpenMP, documented by Doxygen).
+* A hexagonal grid-based surface watershed delineation model, HexWatershed (The first watershed scale model using hexagonal mesh; C++, based on DGGRID and RichDEM, documented by Doxygen).
+* A global scale river routing model based on HexWatershed (The first global river network using hexagonal mesh).
+* A USGS Modular Finite-Difference Ground-Water Flow Model (MODFLOW) model preparation system (IDL and Python).
+* A USGS Precipitation Runoff Modeling System (PRMS) model preparation system (IDL and Python).
+* An advanced publication-ready cartography graphics library (IDL, 90% of figures in my publications were directly produced using this library).
+* An advanced automated spatial data processing library for GIS/RS datasets (IDL and ESRI ArcObject; most data processing in my publications was processed using this library).
+
   
 Talks
 ======
@@ -56,4 +92,5 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Reviewer in several scientific journals
+
