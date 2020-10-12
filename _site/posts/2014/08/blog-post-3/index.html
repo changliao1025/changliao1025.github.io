@@ -348,12 +348,264 @@
       
 
 
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/visualization-for-hexwatershed-model/" class="pagination--pager" title="Visualization for the HexWatershed model results
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
     </div>
 
     
   </article>
 
   
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/visualization-for-hexwatershed-model/" rel="permalink">Visualization for the HexWatershed model results
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-09-29T15:29:00-07:00">September 29, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Earlier, HexWatershed mainly relies on GIS Shapefile and some IDL scripts 
+for visualization due to the nature of unstructured mesh.</p>
+<p>Recently, in 
+HexWatershed 2.0, I added the VTK support for most attributes. For example, 
+below is a quick glimpse of the surface elevation on top of the mesh.</p>
+<div class="separator" style="clear: both; text-align: center;"><iframe allowfullscreen="" class="BLOG_video_class" height="403" src="https://www.youtube.com/embed/Vuqz3hdRK0s" width="485" youtube-src-id="Vuqz3hdRK0s"></iframe><div class="separator" style="clear: 
+both; text-align: center;"> 
+
+</div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-calibration-with-alternative/" rel="permalink">Model calibration with alternative options
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-09-16T15:36:00-07:00">September 16, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p> PyPEST is a project that I worked on a little bit last year. I attempted 
+to make PEST available to Python developers so model calibration can be easy 
+and efficient.</p>
+<p>So far PyPEST supports MACES, SWAT, MODFLOW, PRMS, etc. 
+There is still much work needed for testing.</p>
+<p>MACES has a structure much 
+like SUMMA 
+([https://summa.readthedocs.io/en/latest/configuration/SUMMA_configuration/](https://summa.readthedocs.io/en/latest/configuration/SUMMA_configuration/)).</p>
+<p>During 
+run time, the model may use different algorithms for a single process. As a 
+results, the model may have many different configurations in 
+applications.</p>
+<p>The question is then how we can calibrate a model with 
+alternative options. Shall we treat each option as a parameter or not? 
+Mathematically, we can certainly do so with some tweak because anything can be 
+considered parameter internally. In this way, we may easily pick out the best 
+configuration. There are drawbacks as well. For example, when we treat option 
+as parameter, the commonly used gradient search and sensitivity analysis will 
+be affected. Also, adding them will increase computational demand.</p>
+<p>A 
+more realistic strategy is that we can calibrate classified by configuration. 
+This will increase the complexity of file system but decrease the complexity 
+of parameter control.</p>
+<p>We can then find out the best configuration using 
+another global search. This will also enable us to compare the performance 
+between configurations.</p>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/stream-burning-on-hexagon-mesh-grid/" rel="permalink">Stream burning on the hexagon mesh grid
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-08-16T15:30:00-07:00">August 16, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p></p>
+<div class="separator" style="clear: both; text-align: center;"> 
+<div class="separator" style="clear: both; text-align: left;">This is a follow 
+up study of HexWatershed. In the latest development, we decided to add the so 
+called "stream burning" capability into the HexWatershed model.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">A details 
+explanation of the motivation will be discussed in our new paper. Here I will 
+only focus on some critical issues in the development.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">The first issue 
+is: what happens if the outlet is not at the edge?<div class="separator" style="clear: both; text-align: center;">[<img border="0" data-original-height="419" data-original-width="424" src="https://1.bp.blogspot.com/-x5TVCvEPY7U/Xzlkhaz9fgI/AAAAAAAA_Sc/tjbLNsEB4nE3LvaMT3cHhD5jzy45u-VagCLcBGAsYHQ/s0/outlet_burning.png" />](https://1.bp.blogspot.com/-x5TVCvEPY7U/Xzlkhaz9fgI/AAAAAAAA_Sc/tjbLNsEB4nE3LvaMT3cHhD5jzy45u-VagCLcBGAsYHQ/s424/outlet_burning.png)<div class="separator" style="clear: both; text-align: center;"> 
+One of the core processes to conduct priority-flood filling or breaching is 
+that if a grid cell is processed, it will not be processed again because a 
+mask is used to keep track all the history.<p></p><p>When the outlet is not at 
+the edge, the priority-flood method may start from a non-stream grid. As the 
+algorithm advances, grids near the actual outlet can be possibly marked before 
+outlet is processed. Since these grids are marked, they won't be changed even 
+though they are next to stream. The direct result is that the outlet grid 
+becomes a depression. However, by the definition of watershed, the outlet 
+should be lowest elevation and it would be the first to be added into the 
+queue. By the time the outlet is added, it would automatically turns one of 
+the neighbors into a stream grid.</p><p>This is exactly what is modeled in the 
+HexWatershed. Even without an outlet, the model will be able to create a new 
+one, which however, may be the same with the NHD dataset. Therefore, it is 
+more desirable to set it in the configuration through the mesh ID 
+parameter.</p><p> 
+</p><p> </p> 
+</div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/agu-2020-fall-meeting-session-invitation/" rel="permalink">AGU 2020 Fall meeting session invitation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-06-21T17:53:00-07:00">June 21, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>The AGU 2020 Fall meeting is likely a virtual meeting, but we will keep the 
+science up.&lt;div&gt;</p>
+<div>The submission should be open soon, tune in for more details.<div> 
+<div>Link to the 
+session:<div>[https://agu.confex.com/agu/fm20/webprogrampreliminary/Session104156.html](https://agu.confex.com/agu/fm20/webprogrampreliminary/Session104156.html)<div> 
+<div class="separator" style="clear: both; text-align: center;">[<img border="0" data-original-height="643" data-original-width="584" height="500" src="https://1.bp.blogspot.com/-eopRINe5hWc/XvAAn76pkqI/AAAAAAAA-Rs/8gF1Jw_2bf09Hav89iIGmXLOp_gsIWerwCK4BGAsYHg/w455-h500/IMG_1037.PNG" width="455" />](https://1.bp.blogspot.com/-eopRINe5hWc/XvAAn76pkqI/AAAAAAAA-Rs/8gF1Jw_2bf09Hav89iIGmXLOp_gsIWerwCK4BGAsYHg/s643/IMG_1037.PNG)<div> 
+</div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
   
 </div>
 

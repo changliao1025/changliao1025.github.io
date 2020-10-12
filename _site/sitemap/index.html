@@ -975,6 +975,4092 @@
   </article>
 </div>
 
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/visualization-for-hexwatershed-model/" rel="permalink">Visualization for the HexWatershed model results
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-09-29T15:29:00-07:00">September 29, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Earlier, HexWatershed mainly relies on GIS Shapefile and some IDL scripts 
+for visualization due to the nature of unstructured mesh.</p>
+<p>Recently, in 
+HexWatershed 2.0, I added the VTK support for most attributes. For example, 
+below is a quick glimpse of the surface elevation on top of the mesh.</p>
+<div class="separator" style="clear: both; text-align: center;"><iframe allowfullscreen="" class="BLOG_video_class" height="403" src="https://www.youtube.com/embed/Vuqz3hdRK0s" width="485" youtube-src-id="Vuqz3hdRK0s"></iframe><div class="separator" style="clear: 
+both; text-align: center;"> 
+
+</div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-calibration-with-alternative/" rel="permalink">Model calibration with alternative options
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-09-16T15:36:00-07:00">September 16, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p> PyPEST is a project that I worked on a little bit last year. I attempted 
+to make PEST available to Python developers so model calibration can be easy 
+and efficient.</p>
+<p>So far PyPEST supports MACES, SWAT, MODFLOW, PRMS, etc. 
+There is still much work needed for testing.</p>
+<p>MACES has a structure much 
+like SUMMA 
+([https://summa.readthedocs.io/en/latest/configuration/SUMMA_configuration/](https://summa.readthedocs.io/en/latest/configuration/SUMMA_configuration/)).</p>
+<p>During 
+run time, the model may use different algorithms for a single process. As a 
+results, the model may have many different configurations in 
+applications.</p>
+<p>The question is then how we can calibrate a model with 
+alternative options. Shall we treat each option as a parameter or not? 
+Mathematically, we can certainly do so with some tweak because anything can be 
+considered parameter internally. In this way, we may easily pick out the best 
+configuration. There are drawbacks as well. For example, when we treat option 
+as parameter, the commonly used gradient search and sensitivity analysis will 
+be affected. Also, adding them will increase computational demand.</p>
+<p>A 
+more realistic strategy is that we can calibrate classified by configuration. 
+This will increase the complexity of file system but decrease the complexity 
+of parameter control.</p>
+<p>We can then find out the best configuration using 
+another global search. This will also enable us to compare the performance 
+between configurations.</p>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/stream-burning-on-hexagon-mesh-grid/" rel="permalink">Stream burning on the hexagon mesh grid
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-08-16T15:30:00-07:00">August 16, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p></p>
+<div class="separator" style="clear: both; text-align: center;"> 
+<div class="separator" style="clear: both; text-align: left;">This is a follow 
+up study of HexWatershed. In the latest development, we decided to add the so 
+called "stream burning" capability into the HexWatershed model.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">A details 
+explanation of the motivation will be discussed in our new paper. Here I will 
+only focus on some critical issues in the development.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">The first issue 
+is: what happens if the outlet is not at the edge?<div class="separator" style="clear: both; text-align: center;">[<img border="0" data-original-height="419" data-original-width="424" src="https://1.bp.blogspot.com/-x5TVCvEPY7U/Xzlkhaz9fgI/AAAAAAAA_Sc/tjbLNsEB4nE3LvaMT3cHhD5jzy45u-VagCLcBGAsYHQ/s0/outlet_burning.png" />](https://1.bp.blogspot.com/-x5TVCvEPY7U/Xzlkhaz9fgI/AAAAAAAA_Sc/tjbLNsEB4nE3LvaMT3cHhD5jzy45u-VagCLcBGAsYHQ/s424/outlet_burning.png)<div class="separator" style="clear: both; text-align: center;"> 
+One of the core processes to conduct priority-flood filling or breaching is 
+that if a grid cell is processed, it will not be processed again because a 
+mask is used to keep track all the history.<p></p><p>When the outlet is not at 
+the edge, the priority-flood method may start from a non-stream grid. As the 
+algorithm advances, grids near the actual outlet can be possibly marked before 
+outlet is processed. Since these grids are marked, they won't be changed even 
+though they are next to stream. The direct result is that the outlet grid 
+becomes a depression. However, by the definition of watershed, the outlet 
+should be lowest elevation and it would be the first to be added into the 
+queue. By the time the outlet is added, it would automatically turns one of 
+the neighbors into a stream grid.</p><p>This is exactly what is modeled in the 
+HexWatershed. Even without an outlet, the model will be able to create a new 
+one, which however, may be the same with the NHD dataset. Therefore, it is 
+more desirable to set it in the configuration through the mesh ID 
+parameter.</p><p> 
+</p><p> </p> 
+</div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/agu-2020-fall-meeting-session-invitation/" rel="permalink">AGU 2020 Fall meeting session invitation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-06-21T17:53:00-07:00">June 21, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>The AGU 2020 Fall meeting is likely a virtual meeting, but we will keep the 
+science up.&lt;div&gt;</p>
+<div>The submission should be open soon, tune in for more details.<div> 
+<div>Link to the 
+session:<div>[https://agu.confex.com/agu/fm20/webprogrampreliminary/Session104156.html](https://agu.confex.com/agu/fm20/webprogrampreliminary/Session104156.html)<div> 
+<div class="separator" style="clear: both; text-align: center;">[<img border="0" data-original-height="643" data-original-width="584" height="500" src="https://1.bp.blogspot.com/-eopRINe5hWc/XvAAn76pkqI/AAAAAAAA-Rs/8gF1Jw_2bf09Hav89iIGmXLOp_gsIWerwCK4BGAsYHg/w455-h500/IMG_1037.PNG" width="455" />](https://1.bp.blogspot.com/-eopRINe5hWc/XvAAn76pkqI/AAAAAAAA-Rs/8gF1Jw_2bf09Hav89iIGmXLOp_gsIWerwCK4BGAsYHg/s643/IMG_1037.PNG)<div> 
+</div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/algorithm-design-for-streaming-burning/" rel="permalink">Algorithm design for the streaming burning based on MPAS mesh
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-06-07T12:33:00-07:00">June 07, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><span id="docs-internal-guid-aea3587d-7fff-d672-f9ee-717f2a054f31">&lt;p 
+dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 
+0pt;"&gt;<span style="font-family: Arial; font-size: 11pt; white-space:  pre-wrap;">To generate a stream network that is realistic with the NHD flow 
+line, we need to recondition the DEM, or the so-called “stream burning” into 
+the DEM.&lt;/p&gt;</span></span></p>
+<p dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 
+0pt;"><span style="font-family: Arial; font-size: 11pt; 
+font-variant-east-asian: normal; font-variant-numeric: normal; vertical-align: 
+baseline; white-space: pre-wrap;">In the classical hydrologic model, streaming 
+burning and depression filling are separate steps. Sometimes iterative 
+operations are also required because either step will modify the DEM.&lt;/p&gt; 
+<p dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 
+0pt;"><span style="font-family: Arial; font-size: 11pt; 
+font-variant-east-asian: normal; font-variant-numeric: normal; vertical-align: 
+baseline; white-space: pre-wrap;">In the MPAS mesh, these two algorithms must 
+be rewritten. So the new question is: can we achieve depression filling and 
+streaming burning in one single step? What is the implication behind that? Can 
+we design a scenario that this will make a difference?&lt;/p&gt; 
+<p dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 
+0pt;"><span style="font-family: Arial; font-size: 11pt; 
+font-variant-east-asian: normal; font-variant-numeric: normal; vertical-align: 
+baseline; white-space: pre-wrap;">If there is a difference, does merging them 
+into one single step will resolve this issue?&lt;/p&gt; 
+<p dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 
+0pt;"><span style="font-family: Arial; font-size: 11pt; 
+font-variant-east-asian: normal; font-variant-numeric: normal; vertical-align: 
+baseline; white-space: pre-wrap;">If the above assumptions are true, then we 
+need to consider the following challenges.&lt;/p&gt; 
+<ol style="margin-bottom: 0; margin-top: 0;"><li dir="ltr" style="font-family: 
+Arial; font-size: 11pt; font-variant-east-asian: normal; font-variant-numeric: 
+normal; list-style-type: decimal; vertical-align: baseline; white-space: 
+pre;"><p dir="ltr" role="presentation" style="line-height: 1.38; 
+margin-bottom: 0pt; margin-top: 0pt;"><span style="font-size: 11pt; 
+font-variant-east-asian: normal; font-variant-numeric: normal; vertical-align: 
+baseline; white-space: pre-wrap;">The existing depression filling algorithm 
+starts with boundary/edge, so the stream burning must follow the same 
+strategy;&lt;/p&gt;&lt;/li&gt;<li dir="ltr" style="font-family: Arial; font-size: 11pt; 
+font-variant-east-asian: normal; font-variant-numeric: normal; 
+list-style-type: decimal; vertical-align: baseline; white-space: pre;"><p dir="ltr" role="presentation" style="line-height: 1.38; margin-bottom: 0pt; 
+margin-top: 0pt;"><span style="font-size: 11pt; font-variant-east-asian: 
+normal; font-variant-numeric: normal; vertical-align: baseline; white-space: 
+pre-wrap;">The stream grid flag must be burned into the MPAS mesh in advance, 
+fortunately this requirement is met by the Jigsaw algorithm;&lt;/p&gt;&lt;/li&gt;<li dir="ltr" style="font-family: Arial; font-size: 11pt; font-variant-east-asian: 
+normal; font-variant-numeric: normal; list-style-type: decimal; 
+vertical-align: baseline; white-space: pre;"><p dir="ltr" role="presentation" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-size: 11pt; font-variant-east-asian: normal; font-variant-numeric: 
+normal; vertical-align: baseline; white-space: pre-wrap;">We need to add an 
+auxiliary step to obtain the “true” boundary;&lt;/p&gt;&lt;/li&gt;<li dir="ltr" style="font-family: Arial; font-size: 11pt; font-variant-east-asian: normal; 
+font-variant-numeric: normal; list-style-type: decimal; vertical-align: 
+baseline; white-space: pre;"><p dir="ltr" role="presentation" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-size: 11pt; font-variant-east-asian: normal; font-variant-numeric: 
+normal; vertical-align: baseline; white-space: pre-wrap;">We need to add 
+algorithm to find the stream bank and add the “AGREE” algorithm;&lt;/p&gt;&lt;/li&gt;<li dir="ltr" style="font-family: Arial; font-size: 11pt; font-variant-east-asian: 
+normal; font-variant-numeric: normal; list-style-type: decimal; 
+vertical-align: baseline; white-space: pre;"><p dir="ltr" role="presentation" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-size: 11pt; font-variant-east-asian: normal; font-variant-numeric: 
+normal; vertical-align: baseline; white-space: pre-wrap;">How can we define 
+the buffer zone? Can we just use one single grid (less modification to the raw 
+DEM)?&lt;/p&gt;&lt;/li&gt; 
+<p dir="ltr" style="line-height: 1.38; margin-bottom: 0pt; margin-top: 
+0pt;"><span style="font-family: Arial; font-size: 11pt; 
+font-variant-east-asian: normal; font-variant-numeric: normal; vertical-align: 
+baseline; white-space: pre-wrap;">Once these questions are answered, we can 
+then move to the developments.&lt;/p&gt; 
+</span></p></span></p></li></span></p></li></span></p></li></span></p></li></span></p></li></ol></span></p></span></p></span></p></span></p>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/why-we-need-unified-mesh-for-earth/" rel="permalink">Why we need a unified mesh for Earth system model
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-05-23T12:01:00-07:00">May 23, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>In many of my early posts, I shared some aspects that why I decided to develop 
+the hexagon based watershed model, HexWatershed. &lt;div&gt;But the real motivation 
+lies beyond watershed and I’d like to share some personal motivation why I 
+started this project.&lt;div&gt;</p>
+<div>For decades, since human invented computers and hydrologists invented 
+hydrologic models, we rely on computational techniques to simulate hydrologic 
+processes. And these techniques mostly use the structured mesh/matrix to 
+describe the real world. Nearly all of us are familiar with the so-called 
+X-Y-Z 3D domain.<div> 
+<div>We stand on the shoulder of giants but we seldom question them. <div>It 
+is true in earlier days that most of our research activities focus on a 
+catchment scale or plot scale. We have to admit this is important because we 
+need to understand the fine-scale process before we can extrapolate to a 
+larger domain.<div> 
+<div>We never look at hydrology on a global scale using a global method. Most 
+of us are simply trying to copy the watershed scale method to a global scale 
+without careful evaluations.<div> 
+<div>That is where the problem comes, our Earth is not a typical X-Y-Z domain, 
+instead, it is a sphere.<div>Also, our hydrologic processes interact with 
+various components (lake, river, ocean, etc.)<div> 
+<div>Can we really use the existing method directly on a global scale? Yes and 
+No. We have already seen many cases. But they are far from what we need. <div> 
+<div>For example, we cannot fix the land and ocean interaction:<div class="separator" style="clear: both; text-align: center;">[<img border="0" data-original-height="449" data-original-width="815" height="352" src="https://1.bp.blogspot.com/-IrQvrB0by78/XslqOndM1UI/AAAAAAAA9tM/DCd1L6IQiREtw78wasssrzbBR9nLnlLugCK4BGAsYHg/w640-h352/land_ocean.png" width="640" />](https://1.bp.blogspot.com/-IrQvrB0by78/XslqOndM1UI/AAAAAAAA9tM/DCd1L6IQiREtw78wasssrzbBR9nLnlLugCK4BGAsYHg/land_ocean.png)<div class="separator" style="clear: both; text-align: left;">Besides, we cannot 
+include Greenland and Antarctic in the global simulation.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">Then how can we 
+say we can simulate global hydrology without considering these processes?<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">Many readers may 
+argue that what we are dealing with is not actually a science question and I 
+heard it many times in my talks.<div class="separator" style="clear: both; 
+text-align: left;">Let me explain with a naive example: How can we study the 
+Moon? In earlier days, scientists rely on the telescope to observe the surface 
+of Moon; later on, we sent sensors to orbit Moon to have a better observation; 
+last, we can also collect sample directly once we can land on Moon.<div class="separator" style="clear: both; text-align: left;">With the advance in 
+space technology, what was impossible becomes possible. <div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">Not only what we 
+are doing now has many flaws, but also it cannot answer many scientific 
+questions.<div class="separator" style="clear: both; text-align: left;">There 
+is a difference between can and cannot.<div class="separator" style="clear: 
+both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">As I always 
+said, Steve Jobs might change the way we use technology, but it is Dennis 
+Ritchie who invented C changed the computing world. I personally think Dennis 
+Ritchie made it possible that we can now use computers to answer whatever 
+science questions we have that rely on computing.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">Having a unified 
+mesh enables us to solute questions that are impossible to answer. For 
+example, how does the coastal zone respond to climate change and affects 
+population in these areas?<div class="separator" style="clear: both; 
+text-align: left;"> 
+<div class="separator" style="clear: both;">Low hanging fruits are easy to 
+fetch, but it takes way more effort to get the higher ones, which might be 
+much better. As a Chinese proverb says: To do a good job, an artisan needs the 
+best tools. (工欲善其事，必先利其器.)<div class="separator" style="clear: both; 
+text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;"> <div> 
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/hybrid-modeling-for-earth-system-model/" rel="permalink">Hybrid modeling for Earth system model
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-05-14T12:15:00-07:00">May 14, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Recently I have been thinking about some philosophy in how model the real 
+world.&lt;div&gt;</p>
+<div>For many of us working on the Earth system model, we spent great efforts 
+trying to understand the physical world. For example, we now have a reasonably 
+good idea about how water flows within the system.  <div> 
+<div>Based on our understanding of the physical laws, we built quite a few of 
+process-based models to model and predict different types of systems.<div> 
+<div>On the other hand, there are also processes that are not "simply" 
+governed by physics. For example, human activities, or some stochastic 
+processes like wildfire. <div> 
+<div>For some processes, it would be more beneficial to use agent-based 
+modeling (ABM) approach. For example, how an individual tree interacts with 
+its surrounding environment, fighting for water and nutrients, should be 
+possible to be implemented using the ABM.<div> 
+<div>Other processes, such as animal behavior models, are also similar to 
+ABM.<div> 
+<div>The new question is: how can we merge the process-based model, or 
+equation-based (EBM) with ABM in the Earth system model. What is more 
+interesting is how can we make use of Artificial Intelligence (AI), which ABM 
+itself is based on, to optimize our model. <div> 
+<div>To answer these questions, we need to understand the boundary between EBM 
+and ABM and then we can design different processes using either approach. 
+Eventually, we may have a hybrid model for our use.<div> 
+<div> 
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/depression-filling-on-sphere/" rel="permalink">Depression filling on a sphere
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-04-30T15:06:00-07:00">April 30, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>One of my interests and projects is about flow routing on a global scale or a 
+sphere. 
+This work has several major challenges awaiting to be resolved. Here I will 
+explain a few of them.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/watershed-delineation-on-hexagonal-mesh-b/" rel="permalink">Watershed Delineation On A Hexagonal Mesh Grid: Part B
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-03-19T22:00:00-07:00">March 19, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>This is the second part of a study, the first part can be accessed from [<span style="color:  red;"><strong>Here</strong>](http://www.changliao.us/2020/03/watershed-delineation-on-hexagonal-mesh-a.html). 
+So we decided to use the ISEA alike grid, a hexagon mesh grid to address these 
+issues.</span></p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/watershed-delineation-on-hexagonal-mesh-a/" rel="permalink">Watershed Delineation On A Hexagonal Mesh Grid: Part A
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-03-19T11:35:00-07:00">March 19, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>One of our recent publications is “Watershed Delineation On A Hexagonal Mesh 
+Grid” published on Environmental Modeling and Software 
+(<strong><a href="https://doi.org/10.1016/j.envsoft.2020.104702">link</a></strong>).</p>
+<div>Here I want to provide some behind the scene details of this study. 
+
+</div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/a-workflow-for-distributed-parallel/" rel="permalink">A workflow for distributed parallel data analysis on HPC with checkpoint
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-01-29T11:52:00-08:00">January 29, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>A typical task we do nowadays is to submit a job to the cluster to run some 
+data analysis. But there are some limitations we can do as I know, to some 
+extend.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/the-life-span-of-project/" rel="permalink">The life span of a project
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-01-25T13:34:00-08:00">January 25, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Recently I have been working on a project that I need to prepare some maps. I 
+had to go back to use some code I wrote almost 5 years ago. Then I realized 
+that this happened to me many times.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/a-review-on-dissolved-organic-carbon/" rel="permalink">A review on dissolved organic carbon modeling
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-01-11T15:48:00-08:00">January 11, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Researchgate and Mendeley recommend some nice papers to me based on my own 
+publications. Here are some quick review on the DOC modeling I read today.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/paper-discussion-streamflow-in-columbia/" rel="permalink">Paper discussion Streamflow in the Columbia River Basin
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-01-11T11:52:00-08:00">January 11, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Streamflow in the Columbia River Basin: Quantifying Changes Over the Period 
+1951‐2008 and Determining the Drivers of Those Changes 
+(https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018WR024256)</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/a-review-on-litter-decomposition/" rel="permalink">A review on litter decomposition modeling
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-01-11T11:23:00-08:00">January 11, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Litter decomposition involves series of processes.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/the-impact-of-ice-content-on-hydraulic/" rel="permalink">The impact of ice content on hydraulic conductivity
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2020-01-11T11:22:00-08:00">January 11, 2020</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>In most aquifer test, the hydraulic conductivity is a function of the 
+material, but it does not explicitly consider the impact of ice content on K.</p>
+<div>When soil or any material is partially or fully frozen, its actual K will 
+decrease significantly. Here I want to explore how to model this impact in 
+soil hydrology model. Special attention will be paid to the different impacts 
+on vertical and horizontal K, respectively.<div> 
+</div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/paper-discussion-specific-issue-eco3d/" rel="permalink">Paper discussion special issue the ECO3D model
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-12-20T20:04:00-08:00">December 20, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Recently we have published a paper on Journal of Advanced Modeling of Earth 
+System.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/paper-discussion/" rel="permalink">Paper discussion
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-12-02T10:05:00-08:00">December 02, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Recently I started a series to discuss my own publications. The problem is I 
+only have limited publications.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/actions-that-might-help-fighting/" rel="permalink">Actions that might help fighting climate change
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-11-19T00:28:00-08:00">November 19, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>As an Earth science researcher, I talk a lot about climate change. But most of 
+time I was basically sending message stating that climate change is real and 
+bad. I didn’t spend much time thinking and explaining what should we do to 
+battle climate change.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/learning-in-diverse-environment/" rel="permalink">Learning in a diverse environment
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-11-19T00:23:00-08:00">November 19, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Asking for help sometimes can save your life. But how, where, when ask for 
+help is always a challenge.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/develop-python-scripts-cross-platform/" rel="permalink">Develop Python scripts cross platform
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-10-14T11:41:00-07:00">October 14, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>This post was an answer to my own question: 
+<a href="https://twitter.com/changliao1025/status/1182847707666247680">https://twitter.com/changliao1025/status/1182847707666247680</a></p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/lessons-i-have-learnt-during-e3sm/" rel="permalink">Lessons I have learnt during E3SM development
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-09-17T17:19:00-07:00">September 17, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><div>I have been involved with the E3SM development since I joined PNNL as a 
+postdoc. Over the course of time, I have learnt a lot from the E3SM model. I 
+also found many issues within the model, which reflects lots of similar 
+struggles in the lifespan of software engineering. 
+
+</div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/publication-graphic-generation-workflow/" rel="permalink">Publication graphic generation workflow
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-09-04T15:46:00-07:00">September 04, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><div style="background-color: white; box-sizing: inherit; color: #404040; 
+font-family: &quot;Libre Baskerville&quot;, Libre, Georgia, Times, serif; 
+font-size: 16px; margin-bottom: 1.75em;">Preparing graphics for journal 
+publication is an important step before we submit the manuscript. And 
+sometimes this process is not as smooth as we expected. There are several 
+problems we often encounter:<ul style="background-color: white; box-sizing: 
+inherit; color: #404040; font-family: &quot;Libre Baskerville&quot;, Libre, 
+Georgia, Times, serif; font-size: 16px; list-style-image: initial; 
+list-style-position: initial; margin: 0px 0px 1.75em; padding-left: 
+1.75em;"><li style="box-sizing: inherit;">We generally generate more than 
+enough figures and in the end, we only need a few;</li><li style="box-sizing: 
+inherit;">We also use different format for different purposes. For example, we 
+use jpg/png for debugging. And we use svg/postscript for high quality 
+production. A conversion is usually required.</li><li style="box-sizing: 
+inherit;">Journals usually prefer 600dpi high resolution figures. So 
+postscript format might be the best option.</li><li style="box-sizing: 
+inherit;">Indexing is important for final upload.</li><li style="box-sizing: 
+inherit;">Subplot makes it even complicated.</li><li style="box-sizing: 
+inherit;">We use more than one tools as well. I use IDL/Python for plotting, 
+but I also use GIMP/Snagit/Inkscape for some processes. Keep the process 
+consistent is not easy.</li><div style="background-color: white; box-sizing: 
+inherit; color: #404040; font-family: &quot;Libre Baskerville&quot;, Libre, 
+Georgia, Times, serif; font-size: 16px; margin-bottom: 1.75em;">So maybe we 
+need a clear road map so we won’t get lost easily. Here are my plans:<ul style="background-color: white; box-sizing: inherit; color: #404040; 
+font-family: &quot;Libre Baskerville&quot;, Libre, Georgia, Times, serif; 
+font-size: 16px; list-style-image: initial; list-style-position: initial; 
+margin: 0px 0px 1.75em; padding-left: 1.75em;"><li style="box-sizing: 
+inherit;">Produce postscript/svg when possible using 
+DrawIO/Python/IDL;</li><li style="box-sizing: inherit;">If we need subplot, 
+produce them simultaneously;</li><li style="box-sizing: inherit;">Avoid using 
+GIMP/Inkscape unless in the final step;</li><li style="box-sizing: 
+inherit;">Better file system management.</li><div style="background-color: 
+white; box-sizing: inherit; color: #404040; font-family: &quot;Libre 
+Baskerville&quot;, Libre, Georgia, Times, serif; font-size: 16px; 
+margin-bottom: 1.75em;">I might provide an example later. 
+</div></ul></div></ul></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/a-revisit-of-spatial-discretization/" rel="permalink">A revisit of spatial discretization
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-09-04T15:45:00-07:00">September 04, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><div style="background-color: white; box-sizing: inherit; color: #404040; 
+font-family: &quot;Libre Baskerville&quot;, Libre, Georgia, Times, serif; 
+font-size: 16px; margin-bottom: 1.75em;">Discretization by definition from 
+[Wikipedia](https://en.wikipedia.org/wiki/Discretization): In [applied 
+mathematics](https://en.wikipedia.org/wiki/Applied_mathematics), <span style="box-sizing: inherit; font-weight: 700;">discretization is the process 
+of transferring 
+[continuous](https://en.wikipedia.org/wiki/Continuous_function) functions, 
+models, variables, and equations into 
+[discrete](https://en.wiktionary.org/wiki/discrete) counterparts. This process 
+is usually carried out as a first step toward making them suitable for 
+numerical evaluation and implementation on digital computers.<div style="background-color: white; box-sizing: inherit; color: #404040; 
+font-family: &quot;Libre Baskerville&quot;, Libre, Georgia, Times, serif; 
+font-size: 16px; margin-bottom: 1.75em;">Now we add “spatial” to the term. The 
+first intuitive definition is the <span style="box-sizing: inherit; 
+font-weight: 700;">discretization of functions in the spatial domain.<div style="background-color: white; box-sizing: inherit; color: #404040; 
+font-family: &quot;Libre Baskerville&quot;, Libre, Georgia, Times, serif; 
+font-size: 16px; margin-bottom: 1.75em;">There are two elements in this 
+description: functions and spatial domain.<div style="background-color: white; 
+box-sizing: inherit; color: #404040; font-family: &quot;Libre 
+Baskerville&quot;, Libre, Georgia, Times, serif; font-size: 16px; 
+margin-bottom: 1.75em;">For functions, we often refer to integral or ODEs/PDEs 
+in numerical simulations. If these functions involve with gradient 
+information, then they depend on spatial domain, which is how gradient is 
+calculated.<div style="background-color: white; box-sizing: inherit; color: 
+#404040; font-family: &quot;Libre Baskerville&quot;, Libre, Georgia, Times, 
+serif; font-size: 16px; margin-bottom: 1.75em;">For spatial domain, we often 
+refer to mesh or grid. And mesh can generally be classified into structured 
+and unstructured grid.<div style="background-color: white; box-sizing: 
+inherit; color: #404040; font-family: &quot;Libre Baskerville&quot;, Libre, 
+Georgia, Times, serif; font-size: 16px; margin-bottom: 1.75em;">In practice, 
+we have spent great effects on both aspects of the spatial discretization: 
+mesh and corresponding function solvers.<div style="background-color: white; 
+box-sizing: inherit; color: #404040; font-family: &quot;Libre 
+Baskerville&quot;, Libre, Georgia, Times, serif; font-size: 16px; 
+margin-bottom: 1.75em;">In Earth science, lots of functions involve with 
+gradient. For example, gas exchange depends on pressure gradient or 
+concentration gradient. As a result, Our spatial discretization is always 
+associated with mesh grid.<div style="background-color: white; box-sizing: 
+inherit; color: #404040; font-family: &quot;Libre Baskerville&quot;, Libre, 
+Georgia, Times, serif; font-size: 16px; margin-bottom: 1.75em;">Many studies 
+have developed methods to solve equations using the finite difference method 
+(FDM), the finite volume method (FVM) and the finite element method (FEM). 
+However, many of them have not considered the effects of mesh grid on these 
+solvers. For example, most models use array to represent spatial domain. In 
+this case, water flow at any location can only flow to 4 directions. However, 
+in reality, water can flow to any direction because Earth has no 
+discretization. The problem is how can we represent a direction if it is 30 
+degree?<div style="background-color: white; box-sizing: inherit; color: 
+#404040; font-family: &quot;Libre Baskerville&quot;, Libre, Georgia, Times, 
+serif; font-size: 16px; margin-bottom: 1.75em;">We need a better way to 
+represent the spatial domain decomposition. We can improve the resolution. We 
+can also use unstructured grid such as TIN. Ideally, we need a mesh that 
+matches with reality. In my opinion, adaptive hexagon grid mesh is closest.<ul style="background-color: white; box-sizing: inherit; color: #404040; 
+font-family: &quot;Libre Baskerville&quot;, Libre, Georgia, Times, serif; 
+font-size: 16px; list-style-image: initial; list-style-position: initial; 
+margin: 0px 0px 1.75em; padding-left: 1.75em;"><li style="box-sizing: 
+inherit;">It can cover the sphere.</li><li style="box-sizing: inherit;">It 
+proves consistent connectivity.</li><li style="box-sizing: inherit;">It 
+provides less assumption.</li><li style="box-sizing: inherit;">It also provide 
+6 flow directions.</li><div style="background-color: white; box-sizing: 
+inherit; color: #404040; font-family: &quot;Libre Baskerville&quot;, Libre, 
+Georgia, Times, serif; font-size: 16px; margin-bottom: 1.75em;">Without a 
+solid mesh grid, the simulation which relies on mesh may contain great 
+uncertainty. And these uncertainty may be even larger than the uncertainty 
+caused by FDM/FVM/FEM and algorithms.<div style="background-color: white; 
+box-sizing: inherit; color: #404040; font-family: &quot;Libre 
+Baskerville&quot;, Libre, Georgia, Times, serif; font-size: 16px; 
+margin-bottom: 
+1.75em;">[http://www.thermopedia.com/content/9172/](http://www.thermopedia.com/content/9172/) 
+</div></div></ul></div></div></div></div></div></div></div></span></div></span></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/watershed-hydrology-001/" rel="permalink">Evaluate the stream networks from watershed delineation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-03-31T22:55:00-07:00">March 31, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Recently I asked a question on the GIS Exchange site:</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/integrated-groundwater-and-surface-water-01/" rel="permalink">SWAT-MODFLOW stream flow routing problem
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-03-01T16:03:00-08:00">March 01, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><div>Surface water hydrology and groundwater hydrology are coupled together in 
+natural ecosystem. While it is easy to say so, it is not easy to model both of 
+them simultaneously.<div> 
+<div>In my earlier posts I have covered a lot on related topics including 
+MODFLOW, PRMS and GSFLOW.<div> 
+<div>For example: 
+<div>[https://www.changliao.us/2018/03/paper-discussion-002.html](https://www.changliao.us/2018/03/paper-discussion-002.html)<div>[https://www.changliao.us/2018/03/paper-discussion-001.html](https://www.changliao.us/2018/03/paper-discussion-001.html)<div>[https://www.changliao.us/2015/09/integrated-groundwater-and-surface-water-01.html](https://www.changliao.us/2015/09/integrated-groundwater-and-surface-water-01.html)<div>[https://www.changliao.us/2016/04/surface-water-hydrology-modeling-002.html](https://www.changliao.us/2016/04/surface-water-hydrology-modeling-002.html)<div> 
+<div>Today I will discuss some other issues related to SWAT-MODFLOW. SWAT is 
+another widely used surface hydrology model and there are ongoing efforts 
+trying the couple MODFLOW with 
+SWAT.<div>https://swat.tamu.edu/software/swat-modflow/<div> 
+<div>Unlike PRMS, SWAT in general does NOT use grid based approach to run 
+simulation. Instead, SWAT uses subbasin and HRU to represent the watershed. 
+And this difference may cause a list of challenge for us. I will discuss a few 
+of them in details below.<div> 
+<div>Because SWAT and MODFLOW are not fully coupled from the mathematic 
+perspective, some balance may not be achieved. Let's temporally ignore the 
+issue brought out by HRU and MODFLOW grid overlap. Both model simulate the 
+river routing, but only the SWAT routing result is used as "true" output. 
+<div> 
+<div>Conceptually, these two model behave different as well. For SWAT, the 
+routing is defined by the fig file and the stream segment numbering is not 
+important. <strike>However, in MODFLOW, the order matters, even if you are 
+using RIV package.</strike><div> 
+"Note 5: Reach information is read in sequential order from upstream to 
+downstream, first by segments, and then sequentially by reaches. **<span style="color: red;">If segments are not numbered sequentially in downstream 
+order, then the inflow to a segment during the current MODFLOW iteration will 
+be the outflow from an upstream segment calculated during the previous 
+iteration. Lagging the inflow by one iteration does not change the solution 
+for flows into and out of a segment after MODFLOW converges; however, this 
+approach may require an additional iteration for the model to converge. 
+**Reaches must be listed and read sequentially because the order determines 
+the connections of inflows and outflows within a stream segment." (SFR2 user 
+manual) 
+<div> 
+<div>Even though after the model converges, the difference will be not 
+significant, it will still bring uncertainty in the following simulation.<div> 
+<div>Therefore, it is obvious that these two model use different index system 
+to identify stream networks. It is inevitably we can not use SWAT numbering as 
+the input for MODFLOW and addition efforts will be required to link them 
+together.<div> 
+<div>However, there are some solutions to this issue:<div>1. We can just go 
+ahead and prepare SWAT and MODFLOW model as usual. After that, we can manually 
+link them using the indices. This method requires less modifications on the 
+original model but we need to generate new stream ID for MODFLOW. 
+1. We can change the ArcSWAT results so that the SWAT stream ID are 
+sequentially numbered. The SWAT stream ID can then be used directly by 
+MODFLOW. This method requires good understanding of the ArcSWAT mechanism. 
+Given that ArcSWAT is not open source, we need to check SWAT input/output 
+carefully to see whether the modification is successful or not. 
+1. We can also change the SWAT fig and related files and then generate new 
+Stream ID for MODFLOW. In this case, we do not have to modify ArcSWAT. But we 
+have to check through SWAT input to make sure all related files are updated. 
+Because SWAT is open source, this is straightforward. 
+<div>Method 2 and 3 require more efforts. In short term, method 1 should be 
+used. 
+
+</div></div></div></div></div></div></div></div></span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/swat-001/" rel="permalink">Tips for ArcSWAT issue
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2019-02-28T11:53:00-08:00">February 28, 2019</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><div class="separator" style="clear: both; text-align: center;"><div style="margin-left: 1em; margin-right: 1em;"><div class="separator" style="clear: both; text-align: center;"><div>I have to use ArcSWAT to prepare 
+some SWAT model simulation inputs. And the experience wasn't exactly good 
+(maybe we need a different tool to do this the right way). 
+Below I listed a few issues I have encountered and potentially fixed: 
+
+</div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/surface-water-hydrology-modeling-002/" rel="permalink">The hydrology in the real world
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-12-20T11:35:00-08:00">December 20, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Below is a region of interest from Global Lakes and Wetlands Database 
+(<a href="https://www.worldwildlife.org/pages/global-lakes-and-wetlands-database">link</a>).</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-calibration-001/" rel="permalink">A modern way of automate calibration of a hydrologic model
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-11-23T00:06:00-08:00">November 23, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Calibration of hydrologic model can be tedious, that is why we spent great 
+efforts to automate this process. And sometimes we need some tool that is 
+universal, reusable, so that we don’t have to re-invent the wheel again and 
+again.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/hydrology-002/" rel="permalink">The problem with the HRU definition in the current SWAT model
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-11-20T10:29:00-08:00">November 20, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Model calibration is a critical step in most numerical simulations, including 
+hydrology simulations.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/mindmap001/" rel="permalink">My latest mind map
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-10-31T11:48:00-07:00">October 31, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><iframe width="900" height="600" frameborder="0" src="https://www.mindmeister.com/maps/public_map_shell/1164705933/me?width=900&amp;height=600&amp;z=auto&amp;t=GT4JTiGGdG" scrolling="no" style="overflow: hidden; margin-bottom: 5px;">Your browser is 
+not able to display frames. Please visit 
+[Me](https://www.mindmeister.com/1164705933/me?t=GT4JTiGGdG) on 
+MindMeister.</iframe>
+<div class="mb-5">[Me](https://www.mindmeister.com/1164705933/me?t=GT4JTiGGdG) by 
+[Chang Liao](https://www.mindmeister.com/users/channel/33795807) 
+</div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/hydrology-001/" rel="permalink">The current state of ocean water storage
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-09-30T20:23:00-07:00">September 30, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>In the hydrological cycle, ocean water has the largest storage without doubt. 
+However, our estimates of the ocean water storage have great uncertainty.  I 
+have done some preliminary research into this field and I’d like to share my 
+understanding of the current state of these estimates. I also post a related 
+question in the ReseachGate website 
+(<a href="https://www.researchgate.net/post/Global_water_budget_uncertainty">Link</a>).<br />
+I will start with a few publications and reports. The first one is the USGS 
+website: 
+<a href="https://water.usgs.gov/edu/earthwherewater.html">https://water.usgs.gov/edu/earthwherewater.html</a>, 
+which states the ocean storage to be around 96.5% of the global storage. The 
+numbers are from “World fresh water resources” by Peter H Gleick 1993.</p>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-development-006/" rel="permalink">The problem of geographic coordinate system in global scale simulation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-08-11T14:13:00-07:00">August 11, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Earlier I have discussed some 
+<strong><a href="https://www.changliao.us/2017/06/spatial-datasets-operations-006.html">idea</a></strong> 
+about the hexagon-based grid system. Now I have provided some tests and 
+materials to support this project.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-development-005/" rel="permalink">A visual decomposition of the land grid in the E3SM/CESM model
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-08-02T14:59:00-07:00">August 02, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>One of my recent development projects needs to exchange several variables 
+between different components using the Common Infrastructure for Modeling the 
+Earth (<a href="http://esmci.github.io/cime/">CIME</a>) model. However, different 
+components have different grid systems. Therefore, I have to get familiar with 
+the grid system of these two component before assigning any variables.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-010/" rel="permalink">From watershed to global
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-07-31T10:59:00-07:00">July 31, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Ever since I finished my 3D ecosystem simulation using the ECO3D model, I 
+started to think about applying this model to a larger spatial domain such as 
+global.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-009/" rel="permalink">Some review on the fate of dissolved organic carbon in terrestrial ecosystem
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-07-12T11:27:00-07:00">July 12, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>My recent modeling work involves some rewind of the process happened near the 
+land surface, which causes some issue to the estimate of dissolved organic 
+carbon (DOC) dynamics in terrestrial ecosystem.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-development-004/" rel="permalink">The journey of a three-dimensional ecosystem model debugging and calibration
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-06-05T15:06:00-07:00">June 05, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Currently I am working on the model development, debugging and calibration of 
+the <a href="http://www.eco3d.net/">ECO3D</a> model.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-development-003/" rel="permalink">Hole and Boundary
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  4 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-05-21T17:00:00-07:00">May 21, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>We sometimes do not understand well enough of what we are dealing with in our 
+daily life. 
+I was lucky enough to attend a seminar by Achille C. Varzi a few years ago, 
+which inspired me on this topic: looking at hole and boundary from a different 
+perspective.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-008/" rel="permalink">Some thoughts on respiration and the role of microbe
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-04-15T19:34:00-07:00">April 15, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>I was recently upgrading some components within the [<span style="color:  red;"><strong>ECO3D</strong>](https://ecosystem3d.blogspot.com/p/welcome.html) model, 
+specifically the carbon pool and fluxes in vegetation, litter and soil.</span></p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/paper-discussion-002/" rel="permalink">Quantifying the role of permafrost distribution in groundwater and surface water interactions using a three-dimensional hydrological model
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-03-30T17:07:00-07:00">March 30, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Following my earlier 
+<a href="http://www.changliao.us/2018/03/paper-discussion-001.html">post</a> on promoting 
+my research, this is the second study that I conducted in an attempt to 
+understand the hydrology processes in high latitudes.</p>
+<div> 
+<div>You are encouraged to read the first 
+[post](http://www.changliao.us/2018/03/paper-discussion-001.html) for a 
+background understanding of this study.<div> 
+<div>Let's cut to the chase, the title of this study is "Quantifying the role 
+of permafrost distribution in groundwater and surface water interactions using 
+a three-dimensional hydrological model", and you can access the paper through 
+[here](https://www.tandfonline.com/doi/abs/10.1657/AAAR0016-022) or 
+[this](http://www.bioone.org/doi/abs/10.1657/AAAR0016-022).<div> 
+<div>In Arctic, snow and glacier are not the only players in the hydrology 
+processes. Permafrost, the so called frozen soil is also an important player 
+in both hydrology and carbon cycles.<div> 
+<div>There are several reasons for that:<div>1. It is frozen, so it could 
+potentially release a lot of water in the warming climate; 
+1. Permafrost degradation can change the landscape, then both the carbon and 
+water cycles will be affected; 
+1. Permafrost is like a barrier, it blocks interactions. Therefore, permafrost 
+degradation will change the interactions between surface processes and deep 
+processes. 
+<div>While there are many aspects we can look into, we decided to look into 
+the groundwater and surface water (GW-SW) interactions. Part of the reason is 
+that we now consider permafrost in a three-dimensional domain and GW-SW 
+interaction in directly affected by the spatial distribution of 
+permafrost.<div> 
+<div>So we started with the standard groundwater flow model, this model is 
+again from USGS, and it is called MODFLOW. More details can be found at 
+[here](https://www.blogger.com/(https://water.usgs.gov/ogw/modflow/) 
+(https://water.usgs.gov/ogw/modflow/).<div> 
+<div>I would not get into details of how MODFLOW works. I do want to highlight 
+a few important things.<div>1. The spatial domain is now broken into 3D zones, 
+just like you cut your cheese cake. It has layers and pieces; 
+1. Water flows through the 3D domain and its speed depends on gradient and 
+conductivity. 
+<div> 
+<div>A zoomed view of the 3D setup is illustrated here:<div class="separator" style="clear: both; text-align: center;">[<img border="0" data-original-height="983" data-original-width="1600" height="392" src="https://1.bp.blogspot.com/-diau2w8atl8/Wr7J4iBRzsI/AAAAAAAAgL4/SlEVVy853U0dvhayfs__lDcugkseDS0NACLcBGAs/s640/figure3b.jpg" width="640" />](https://1.bp.blogspot.com/-diau2w8atl8/Wr7J4iBRzsI/AAAAAAAAgL4/SlEVVy853U0dvhayfs__lDcugkseDS0NACLcBGAs/s1600/figure3b.jpg)<div class="separator" style="clear: both; text-align: center;">Figure 1. The 
+spatial discretization of the study domain.<div class="separator" style="clear: both; text-align: center;"> 
+<div class="separator" style="clear: both; text-align: center;"> 
+<div class="separator" style="clear: both; text-align: left;">If you look at 
+the above figure, different cell/zone have different shape/size and hydrologic 
+properties.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">We have to know 
+where permafrost is located and how deep they are. This is defined using the 
+permafrost map:<div class="separator" style="clear: both; text-align: 
+center;">[<img border="0" data-original-height="1133" data-original-width="1600" height="452" src="https://1.bp.blogspot.com/-aCt7MKKy5mY/Wr7L0d0DDLI/AAAAAAAAgMA/iNwSf2z3pfYZe5kzP8JLfhBxHegkQva-ACLcBGAs/s640/figure6.jpg" width="640" />](https://1.bp.blogspot.com/-aCt7MKKy5mY/Wr7L0d0DDLI/AAAAAAAAgMA/iNwSf2z3pfYZe5kzP8JLfhBxHegkQva-ACLcBGAs/s1600/figure6.jpg)<div class="separator" style="clear: both; text-align: center;">Figure 2. The 
+spatial distribution of permafrost and thickness.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">Note that we 
+also defined the stream network similar to my earlier study. In fact, it is a 
+much complicated process than it appears to be.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">We have to 
+consider how groundwater interacts with stream in permafrost regions.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">We first need to 
+ask, is there permafrost under stream bed?<div class="separator" style="clear: 
+both; text-align: left;">And we also have to ask whether there are permafrost 
+next to stream.<div class="separator" style="clear: both; text-align: 
+left;">In the end, we have to design the model structure to be very realistic 
+and computationally friendly. For example, should the stream in the first 
+layer or the second layer where permafrost rests? Can there be two-way 
+interactions depending on stream stage?<div class="separator" style="clear: 
+both; text-align: left;">Overall, the design is illustrated in Figure 3. <div class="separator" style="clear: both; text-align: center;">[<img border="0" data-original-height="1200" data-original-width="1600" height="480" src="https://2.bp.blogspot.com/-JidZs2Vn2wY/Wr7MkEjChrI/AAAAAAAAgMI/5m-znXO9dsIUmiNFlHYpokhu7kXRr7BkACLcBGAs/s640/figure5.jpg" width="640" />](https://2.bp.blogspot.com/-JidZs2Vn2wY/Wr7MkEjChrI/AAAAAAAAgMI/5m-znXO9dsIUmiNFlHYpokhu7kXRr7BkACLcBGAs/s1600/figure5.jpg)<div class="separator" style="clear: both; text-align: center;">Figure 3. The 
+interactions between groundwater and stream water in permafrost regions.<div class="separator" style="clear: both; text-align: center;"> 
+<div class="separator" style="clear: both; text-align: center;"> 
+<div class="separator" style="clear: both; text-align: left;">We ran the 
+simulation for 36 years driven by the surface infiltration and stream 
+discharge. Some results are listed here:<div class="separator" style="clear: 
+both; text-align: center;">[<img border="0" data-original-height="1393" data-original-width="1600" height="556" src="https://4.bp.blogspot.com/-CIwX9MYXCHE/Wr7OtxjOpxI/AAAAAAAAgMU/3bq4yFCCm7w8a0Prf-S5uQlWV5mBZEvXwCLcBGAs/s640/figure10.jpg" width="640" />](https://4.bp.blogspot.com/-CIwX9MYXCHE/Wr7OtxjOpxI/AAAAAAAAgMU/3bq4yFCCm7w8a0Prf-S5uQlWV5mBZEvXwCLcBGAs/s1600/figure10.jpg)<div class="separator" style="clear: both; text-align: center;">Figure 4. The 
+vertical groundwater flow between layer 1 and 2.<div class="separator" style="clear: both; text-align: center;"> 
+ This result demonstrates that most vertical flow occurs in permafrost-free 
+zones, which is not surprising. It also implies that in the warming climate 
+where there is less permafrost, the spatial distribution will definitely 
+change. 
+<div class="separator" style="clear: both; text-align: center;">[<img border="0" data-original-height="648" data-original-width="1600" height="258" src="https://2.bp.blogspot.com/-ZTHxKPd6Tuk/Wr7OvHp8l-I/AAAAAAAAgMY/IbLS1C9EGV02WTFuHUQ_zL2rxiU0NfsfQCLcBGAs/s640/figure12.jpg" width="640" />](https://2.bp.blogspot.com/-ZTHxKPd6Tuk/Wr7OvHp8l-I/AAAAAAAAgMY/IbLS1C9EGV02WTFuHUQ_zL2rxiU0NfsfQCLcBGAs/s1600/figure12.jpg)<div class="separator" style="clear: both; text-align: center;">Figure 5. Time 
+series of groundwater and stream water interactions.<div class="separator" style="clear: both; text-align: center;"> 
+<div class="separator" style="clear: both; text-align: left;">This result 
+first confirms the base flow throughout the year fed by groundwater. It also 
+shows the interactions in different time/season vary with stream 
+conditions.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">This study has 
+demonstrated the permafrost plays an important role in GW-SW interactions. It 
+also implies this relationship will change in the warming climate.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">During this 
+study, a IDL-based MODFLOW system was developed. Later on, this system is 
+converted to Python-based, so you may try out MODFLOW simulation in any region 
+without too much effort.<div class="separator" style="clear: both; text-align: 
+left;"> 
+<div class="separator" style="clear: both; text-align: left;"> 
+<div> 
+<div> 
+<div> 
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/paper-discussion-001/" rel="permalink">Quantifying the Role of Snowmelt in Stream Discharge in an Alaskan Watershed
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  4 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-03-19T17:02:00-07:00">March 19, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Inspired by fellow science social on publication and citation, I decided to 
+write a few short introduction posts on my recent publications.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-development-002/" rel="permalink">Another thought on Earth System Model challenge
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2018-02-22T17:10:00-08:00">February 22, 2018</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>I recent had several discussions with several friends on various topics. Such 
+as whether improving one component with an Earth System Model (ESM) 
+necessarily improve the overall performance.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/model-development-001/" rel="permalink">How to write a computational climate model with confidence
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-12-31T19:54:00-08:00">December 31, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>I have covered many aspects of climate model related topics so far and I have 
+also discussed quite a few examples in model development. I think it is time 
+to warp up a post to serve as a guidance for whose who may be interested in 
+this field.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/numerical-simulation-001/" rel="permalink">Numerical simulation: ode/pde solver and spin-up
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-08-31T23:08:00-07:00">August 31, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>For Earth Science model development, I inevitably have to deal with ODE and 
+PDE equations. I also have come across some discussion related to this topic, 
+i.e.,</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-development-008/" rel="permalink">Ecosystem development: from process-oriented to object-oriented system
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-07-14T07:52:00-07:00">July 14, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>One of my recent projects is to develop a three-dimensional coupled water and 
+carbon cycle ecosystem model. After finished the first version of the system, 
+I wasn’t quite satisfied with the system architecture, partly due to the 
+complexity of the system dependency.</p>
+<div> 
+<div>In fact, I have spent great amount of time trying to design the system to 
+be well-structured. Using class in C++11, I have defined many classes to 
+controls different types of algorithms and processes. <div> 
+<div>The interesting part of the story started to unveil when I started to 
+write/revise the manuscript. When I tried to explain the conceptual model, I 
+realized that even though the current system has use object-oriented 
+programming (OOP) approach through class, most components within the system 
+are not actually using the OOP concept at all. In a word, the system still 
+acts like a process-oriented program.<div> 
+<div>Taking a review of several other Earth system models (e.g., Community 
+Land Model), I realized that unfortunately most of current models fall into 
+this catalog, process-oriented instead of object-oriented system. <div> 
+<div>Process-oriented system usually focuses on "action" instead of "object". 
+For example, we focus on "photosynthesis" process but not the entry where it 
+actually takes place. As this traditional approach is more intuitive to us, it 
+usually causes problems in program development such as low reusability due to 
+dependency. 
+
+</div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/spatial-datasets-operations-006/" rel="permalink">Spatial datasets operations: a hexagon-based discrete grid systems for global simulation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-06-19T08:24:00-07:00">June 19, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>After finished my three-dimensional coupled water and carbon cycle model, I 
+have been thinking whether I can apply this approach at large spatial domain 
+or even global scale. 
+During this process, I realized that most (or all) global scale land surface 
+modeling work are based on the square grid system, which is widely used in 
+Earth science. This grid is also common recognized as pixel, grid cell.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/scientific-writing-003/" rel="permalink">Scientific writing: from LaTex to BibTex
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-06-08T18:37:00-07:00">June 08, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>I am not very familiar with Tex system, but I use it for several purposes.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/spatial-datasets-operations-005/" rel="permalink">Spatial datasets operations: an overview of global climate dataset and interpolation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-06-02T07:18:00-07:00">June 02, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Climate dataset is literally the most important data in climate change 
+research. Great efforts have been made to prepare climate dataset over the 
+decades.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/high-performance-computing-005/" rel="permalink">High performance computing: data management
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-04-28T23:02:00-07:00">April 28, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>When you leave a position, such as graduation from university, you usually 
+have to backup lots of data, which is usually considered as one critical step 
+in data management.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-007/" rel="permalink">Ecosystem modeling: uncertainty quantification
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-04-23T20:29:00-07:00">April 23, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>I recently read a few news articles of skeptical attitudes towards climate 
+change, and I decided to write something about it. I am not trying to promote 
+climate change, but instead I want to point out there is great uncertainty in 
+our current Earth system modeling.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-006/" rel="permalink">Ecosystem modeling: model evaluation of current implementation in ECO3D 1.0
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-04-05T20:02:00-07:00">April 05, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>As I am preparing my defense, the first version of ECOSYSTEM 1.0 in my thesis 
+was finally completed. Looking forward to the next chapter of my life, I 
+thought it is time to evaluate the ECOSYSTEM 1.0 to see what it is capable of 
+and what still needs to be improved or expanded in the near future.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-005/" rel="permalink">Ecosystem modeling: a review on spatial resolution and lateral flow
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-03-29T17:01:00-07:00">March 29, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>We all agree that lateral flow is important in hydrology, but why most 
+ecosystem models do not consider lateral flow?</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/surface-water-hydrology-005/" rel="permalink">Surface water hydrology: a reach based approach
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-03-12T20:44:00-07:00">March 12, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>In surface watershed hydrology, stream network is usually represented by a 
+number of connected stream segments. Outflow from a upstream is then routed to 
+its downstream as inflow at certain time step.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-004/" rel="permalink">Ecosystem modeling: challenges in simulating the dissolved organic carbon
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-02-13T13:52:00-08:00">February 13, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Dissolved Organic Carbon (DOC) is an important carbon budget within ecosystem, 
+especially for aquatic ecosystem including oceanic ecosystem.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/scientific-writing-002/" rel="permalink">Scientific writing: high quality scalable vector graphics
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-01-17T19:20:00-08:00">January 17, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>I recently found a new way to prepare publication-ready high quality vector 
+graphic using Google Drive. 
+Here is the result:</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/high-performance-computing-004/" rel="permalink">High Performance Computing: Download and prepare data in a batch mode
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2017-01-13T13:15:00-08:00">January 13, 2017</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><div class="MsoNormal" style="line-height: normal; margin-bottom: .0001pt; 
+margin-bottom: 0in;"><div style="margin-bottom: .0001pt; margin: 0in;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">Over the time, I need to manipulate a lot of data on a Linux cluster. 
+Some of these manipulations actually read/write data, whereas some are 
+essentially file system operations, such as downloading the files. 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">Here I present a list of similar operations suitable for HPC using pbs 
+job approach whenever possible. 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">I do not attempt to include all possible methods but only the ones 
+that I find useful and easy to prepare in seconds. 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">**Download** 
+<span style="font-family: Times, Times New Roman, serif;">The most efficient 
+way to download MODIS alike data using HPC. 
+<span style="font-family: Times, Times New Roman, serif;">wget -r --no-parent 
+-R "index.html*" --retr-symlinks -A "*.nc" ftp-url 
+<span style="font-family: Times, Times New Roman, serif;">wget -r --no-parent 
+-R "index.html*" -A "MOD17A2.A2000*.hdf" -A "MOD17A2.A2000*.xml" http-url 
+<span style="font-family: Times, Times New Roman, serif;">wget -r --no-parent 
+-R "index.html*" -A "MOD17*.hdf" -A "MOD17*.xml" http-url 
+<span style="font-family: Times, Times New Roman, serif;">You can basically 
+setup filter for file type, year and granule id. 
+<span style="font-family: Times, Times New Roman, serif;">A live example: 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">///========================================================== 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#!/bin/bash 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#PBS -l nodes=1:ppn=1 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#PBS -l naccesspolicy=singleuser 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#PBS -l walltime=40:00:00 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#PBS -M your email address 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#PBS -m ae 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#PBS -N download 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#PBS -q standby 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">cd $PBS_O_WORKDIR 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">wget -r --no-parent  -R "index.html*"   --retr-symlinks  -A "*.tar" 
+ftp://somwhere 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">///========================================================== 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;"><span style="font-family: &quot;arial&quot; , sans-serif;"> 
+<span style="font-family: &quot;arial&quot; , sans-serif;">**Compress and 
+extract ** 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">Examples: 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">///========================================================== 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#!/bin/bash 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#use this script to extract tar files under the sub directory 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">for dir in `find -mindepth 1 -maxdepth 1 -type d` 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">do 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">    cd $dir 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">    echo $dir 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">    tar xf *.tar ./ 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">    cd .. 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">done 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">///========================================================== 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">#!/bin/bash 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;"># Pass the name of the file to unpack on the command line $1 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">for file in *.gz 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">do 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">    gunzip -d "$file" 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">done 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">///========================================================== 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;"><span style="font-family: &quot;arial&quot; , sans-serif;"> 
+<span style="font-family: &quot;arial&quot; , sans-serif;">**Search** 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">grep -rnw '/path/to/somewhere/' -e "pattern" 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">find . -maxdepth 1 -name "*string*" -print<span style="font-family: 
+&quot;times&quot; , &quot;times new roman&quot; , serif;"><span style="font-family: &quot;arial&quot; , sans-serif;"> 
+<span style="font-family: &quot;arial&quot; , sans-serif;">**Comiple** 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">make &amp;&gt; results.txt 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;"><span style="font-family: &quot;arial&quot; , sans-serif;"> 
+<span style="font-family: &quot;arial&quot; , sans-serif;">**Count** 
+<span style="font-family: &quot;arial&quot; , sans-serif;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">find . -name '*.cpp' | xargs wc -l 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;"><span style="font-family: &quot;arial&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , sans-serif;"> 
+<span style="font-family: &quot;arial&quot; , sans-serif;"><span style="font-family: &quot;arial&quot; , &quot;helvetica&quot; , 
+sans-serif;">**Debug** 
+<span style="font-family: &quot;arial&quot; , sans-serif;"><span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;">qsub -I -lnodes=1:ppn=20 -lwalltime=04:00:00 -q boss  -X 
+<span style="font-family: &quot;times&quot; , &quot;times new roman&quot; , 
+serif;"><span style="font-family: &quot;arial&quot; , sans-serif;"> 
+
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/high-performance-computing-003/" rel="permalink">High Performance Computing: ParaFly
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-10-21T11:20:00-07:00">October 21, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>In my recent posts I shared some first hand experience of parallel computing 
+using OpenMP. 
+While OpenMP is supported by many programming languages, there are still a few 
+does not. So here I am sharing another approach to create a parallel computing 
+job.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/high-performance-computing-002/" rel="permalink">High Performance Computing: OpenMP and Anusplin
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-10-04T11:53:00-07:00">October 04, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>This is a live example from the project I am working right now. Good luck if 
+you are following! 
+In order to speed my Anusplin program, I decided to use OpenMP. 
+<a href="http://fennerschool.anu.edu.au/research/products/anusplin-vrsn-44">Anusplin</a> 
+is a package for climate data preparation.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-003/" rel="permalink">Ecosystem modeling: how to deal with the time-variant datasets?
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-10-01T11:46:00-07:00">October 01, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Ecosystem modeling usually requires a variety of data to run a complete 
+simulation. These data usually include both time-variant and time-invariant 
+datasets. For example, we usually consider Digital Elevation Model (DEM) as 
+time-invariant data because surface topography is relatively stable for a 
+given period of time unless extreme events such as earthquake occur.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/high-performance-computing-001/" rel="permalink">High Performance Computing: A library of utilities
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-09-17T14:16:00-07:00">September 17, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>A brief look into all the advanced modules we can do on a typical HPC cluster. 
+I will gradually introduce what I have been using over the time to advance my 
+research.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/idl-programming-002/" rel="permalink">IDL programming: How to design a simple program
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-09-17T08:43:00-07:00">September 17, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>For scientists and engineers, our scripts/programs are usually very 
+straightforward and simple. Even some of us are modelers, our models should be 
+complex but the source code are still manageable. 
+However, the re-usability of these simple programs are still necessary because 
+a lot of our work must be done over and over again. For example, we need to 
+plot/map some data in various scenarios. And we wants the plot/map program can 
+be used for various types of inputs.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/spatial-datasets-operations-004/" rel="permalink">Spatial datasets operations: When the sky is failing
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-09-13T13:53:00-07:00">September 13, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Not all raster can be re-projected to another projection, at least some tools 
+don’t allow us to.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/spatial-datasets-operations-003/" rel="permalink">Spatial datasets operations: From MODIS to model ready binary workflow
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-09-13T07:44:00-07:00">September 13, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><div>I have written a couple of articles regarding the potential issues during 
+raster operations. Here I have put down some typical workflow for these 
+operations. 
+For study area smaller than one MODIS granule, following these steps: 
+
+</div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/spatial-datasets-operations-002/" rel="permalink">Spatial datasets operations: From MODIS HDF to Binary file
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-09-12T14:49:00-07:00">September 12, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><div class="separator" style="clear: both; text-align: left;">MODIS products 
+are widely used in Earth Science, here I present some typical demos and 
+tryouts to deal with MODIS datasets.<div class="separator" style="clear: both; 
+text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">All the MODIS 
+products datasets are distributed in HDF format.<div class="separator" style="clear: both; text-align: left;">To get familiar with HDF, you can go 
+to:<div class="separator" style="clear: both; text-align: 
+left;">[https://en.wikipedia.org/wiki/Hierarchical_Data_Format](https://en.wikipedia.org/wiki/Hierarchical_Data_Format)<div class="separator" style="clear: both; text-align: left;">or <div class="separator" style="clear: both; text-align: 
+left;">[https://www.hdfgroup.org/HDF5/](https://www.hdfgroup.org/HDF5/)<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">MODIS land 
+surface products usually have a different map projection than most of our 
+projects.<div class="separator" style="clear: both; text-align: left;">Here 
+are some information of this projection:<div class="separator" style="clear: 
+both; text-align: 
+left;">[http://modis-land.gsfc.nasa.gov/MODLAND_grid.html](http://modis-land.gsfc.nasa.gov/MODLAND_grid.html)<div class="separator" style="clear: both; text-align: left;">Therefore, a 
+re-project is needed to convert HDF datasets to our projects.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">There are quite 
+a few tools available to operate on HDF files, but most of them are not 
+efficient enough. You have to repeat the same set of operations. Therefore, 
+using IDL or ArcObject based script/program is desirable.<div class="separator" style="clear: both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">The first step 
+is to extract the datasets from HDF, and we also need to define the projection 
+as exactly the same with HDF. Below is a very simple way to do so. You can use 
+ArcMap to open one single HDF file and output the datasets as TIFF or other 
+raster datasets formats.<div class="separator" style="clear: both; text-align: 
+center;"> 
+<div class="separator" style="clear: both; text-align: center;">[<img border="0" height="347" src="https://1.bp.blogspot.com/-XC5pvCY_NOA/V9cXwM1OdWI/AAAAAAAARQ4/_4AYn6ZvygoXlMcAXU-7HoMeKmBRj6PLwCLcB/s640/sce_arcmap.png" width="640" />](https://1.bp.blogspot.com/-XC5pvCY_NOA/V9cXwM1OdWI/AAAAAAAARQ4/_4AYn6ZvygoXlMcAXU-7HoMeKmBRj6PLwCLcB/s1600/sce_arcmap.png)<div class="separator" style="clear: both; text-align: center;">Fig 1. Convert 
+result from HDF to GeoTIFF in ArcMap 10.1.<div class="separator" style="clear: 
+both; text-align: left;"> 
+<div class="separator" style="clear: both; text-align: left;">Unfortunately, 
+ENVI doesn't support all the MODIS product quite well so far. And the map 
+projection cannot be read after the conversion using ArcMap, see below.<div class="separator" style="clear: both; text-align: left;"> 
+
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/groundwater-hydrology-modeling-003/" rel="permalink">Groundwater hydrology modeling: the relation among stream, groundwater and surface runoff
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-08-30T13:17:00-07:00">August 30, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Stream discharge is an important component in hydrology. Yet stream discharge 
+is commonly studied in surface hydrology. In recent decades, it has been 
+recognized that groundwater also interact with stream water throughout the 
+year.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/surface-water-hydrology-001/" rel="permalink">Surface water hydrology: build the relationship between river gage height and discharge
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-08-15T08:13:00-07:00">August 15, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Both gage height and discharge rate are important factors in surface water 
+hydrology. 
+For most of the time they are closely coupled. 
+When one of them is missing, we can always estimate the other using some 
+relation algorithms. 
+To date, there a few commonly used relation algorithms. For example:</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/numerical-simulation-000/" rel="permalink">Numerical simulation: unit system
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-06-29T19:20:00-07:00">June 29, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Unit is always one of the most important factors in science. Most of the time, 
+a number without unit is useless. 
+For numerical simulation, a good design of unit system can be critical. 
+Recently, I have written a short script/program to prepare climate data for my 
+groundwater/surface water hydrology simulation. I downloaded some data from 
+the National Climatic Data Center(<a href="http://www.ncdc.noaa.gov/">NCDC</a>) 
+separately, and I did NOT notice the changes in unit system. In the end, I 
+have to do everything over again.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/groundwater-hydrology-modeling-002/" rel="permalink">Groundwater hydrology modeling: Why it is so difficult to simulate the groundwater dynamics in mountain area
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-06-26T17:34:00-07:00">June 26, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>First, in mountain area, there is generally less groundwater observations, 
+which makes it’s difficult to define the boundary condition. Without 
+observations, the initial head can only be assumed or estimated using a steady 
+state simulation. 
+Second, groundwater recharge in mountain area is very low. This is because 
+some mountain surface has no soil or a shallow soil layer. And the 
+permeability of rock fractures is very low. As a result, infiltration from the 
+surface/subsurface to groundwater systems is extremely low. 
+Third, the hydraulic priorities of the fractured and unfractured rock material 
+are also very low, which means the groundwater system is very sensitive. 
+Beside, topography effects from mountain area usually require high spatial 
+resolution grid cell in the numerical simulation.</p>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-002/" rel="permalink">Ecosystem modeling: challenges in water-carbon cycling in cold region numerical simulation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-06-15T08:21:00-07:00">June 15, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Numerical simulation of water and carbon cycling in cold region usually 
+encounter some unique challenges which must be taken into consideration in 
+climate change study.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-001/" rel="permalink">Ecosystem modeling: a question of chicken or eggs?
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-06-02T07:31:00-07:00">June 02, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Ecosystem modeling generally include three conceptual components: inputs, 
+algorithm and outputs. 
+For example, we usually need precipitation to estimate surface runoff. 
+On the other hand, sometimes some outputs are also considered as inputs for 
+other models. For example, vegetation dynamics also change the surface albedo 
+and therefore the incoming radiation. 
+In another word, the feedback among different processes are often too complex 
+that we generally have to ignore some feedback processes.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-000/" rel="permalink">Ecosystem modeling: creating hierarchical class dependency maps
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-05-29T09:09:00-07:00">May 29, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Having a visual class dependency map could significantly help you to better 
+understand the structure of a complex ecosystem model. For example, a group in 
+University of Tennessee published a web-based <a href="http://web.ornl.gov/~7xw/CLM_Overview.html">structure 
+tree</a> of the Community Land Model.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-101/" rel="permalink">Ecosystem modeling: a look up table for land cover and vegetation types
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-05-11T11:36:00-07:00">May 11, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Vegetation type is an important factor in ecosystem modeling. In the 3D 
+ecosystem modeling, the MODIS land cover product is used. Both the IGBP and 
+UMD schemes are used in separate modules.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/ecosystem-modeling-100/" rel="permalink">Ecosystem modeling: a look up table for system state variables
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-05-09T12:13:00-07:00">May 09, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>A list of variables has been established to describe the ecosystem system 
+state. Specially, these variables are from different process-based algorithms.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/surface-water-hydrology-modeling-002/" rel="permalink">Surface water hydrology modeling: scaling issue in Precipitation Runoff Modeling System(PRMS)
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-04-29T21:28:00-07:00">April 29, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Grid-based HRU network for stream routing in PRMS could be convenient for 
+several reasons. 
+Apparently the ideal data structure as matrix could be one of them.But it is 
+not always the case if the scaling issue is not well handled. 
+Below is an example how the scale issue could be a potential problem for the 
+simulation framework. 
+First, I would like to introduce the CRT. Cascade Routing Tool (CRT) is a 
+computer application for watershed models that include the coupled Groundwater 
+and Surface-water FLOW model GSFLOW and the Precipitation-Runoff Modeling 
+System (PRMS). More information could be found at 
+(http://water.usgs.gov/ogw/CRT/) 
+The example run result is listed as:</p>
+<div style="text-align: center;"><img src="https://4.bp.blogspot.com/-4-HesCLrZ2I/VD88vBJ2alI/AAAAAAAAZOg/-qprjUn4ttk/s400/crv.png" />Read the instruction of CRT and you will easily understand the legend/label 
+of the above result.The stream line datasets used here is vector and the grid 
+resolutions in horizontal are both 100 meters. 
+The next step, the subbasin was delineated using stream line and DEM datasets. 
+Note that in these operations, the resolution of DEM is 10 meters instead of 
+100 meters. The result is as follow: 
+
+</div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/groundwater-hydrology-modeling-001/" rel="permalink">Groundwater hydrology modeling: relation between steady state and transient simulation in MODFLOW simulation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-04-29T17:15:00-07:00">April 29, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Standard groundwater modeling usually uses the three-dimensional Richard’s 
+equation to describe the groundwater flow. Solution to the Richard equation 
+usually requires numerical methods such as finite-difference equation used in 
+USGS MODFLOW. 
+To solute the array of equations within MODFLOW, an initial head is required 
+regardless of steady state (SS) or transient (TR) simulation. 
+As the MODFLOW manual states that in a steady state simulation, the storage 
+terms are ignored since storage of each grid cell is constant with time. 
+One of the common problems to run the MODFLOW is  that we don’t have the 
+initial head data for the simulation. Therefore it is usually suggested that a 
+SS simulation could be run at first to provide the head for the TR simulation. 
+This is because SS is independent with initial head, but TR isn’t. 
+However, whether placing the SS simulation ahead of TR simulations is doubtful 
+in many practices! Here are the explanations: 
+First, the SS flow equation should only be simulated when the system is in 
+equilibrium state.By definition, the steady state flow equation means for each 
+grid cell, the flow and storage don’t change with time. In most natural 
+scenarios, these requirements are rarely met. However, the hydrologic system 
+may be very close to equilibrium under certain circumstances. For instance, 
+during winter time, the water flow is ignorable if most hydrologic processes 
+are impaired due to the snow cover and frozen ground.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/surface-water-hydrology-modeling-001/" rel="permalink">Surface water hydrology modeling: deal with different types of precipitation
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-04-29T16:54:00-07:00">April 29, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p><span style="font-family: inherit;">In surface water hydrology, precipitation 
+is one of the most important components. 
+<span style="font-family: inherit;">However, within most hydrology models, it 
+is unclear of how precipitation is actually represented. 
+For example, in a typical water cycle illustration from 
+<a href="https://en.wikipedia.org/wiki/Precipitation">Wiki</a>, precipitation is 
+described as</span></span></p>
+<div style="text-align: center;"><div style="text-align: center;"><img height="273" src="https://upload.wikimedia.org/wikipedia/commons/9/94/Water_cycle.png" width="400" /><div style="text-align: left;">Here is the question, what form 
+does precipitation actually take when it falls to land surface?<div style="text-align: left;">Water can be in either liquid (water, rain), solid 
+(ice, snow) or gas (water vapor) forms. How about precipitation? Surely most 
+of time precipitation is either rain of snow. In some cases, it takes form in 
+hail, etc.<div style="text-align: left;"> 
+<div style="text-align: left;">Since the physical proprieties of water and 
+snow are significantly different, it is necessary to distinguish them within 
+surface water hydrology models.<div style="text-align: left;">In some 
+scenarios, rain and snow may co-exist in a [mixed 
+precipitation](https://en.wikipedia.org/wiki/Rain_and_snow_mixed) event. In 
+this case, surface water hydrology models need to deal with both of them. The 
+difficulty is how to manage the two-phase mass and energy balance.<div style="text-align: left;">A complete comparison of how different models deal 
+with this scenario will be presented later. 
+
+</div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/scientific-writing-001/" rel="permalink">Scientific writing: how to prepare a good image figure
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-03-25T14:11:00-07:00">March 25, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>“A picture is worth a thousand words”, from 
+<a href="https://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words">Wikipedia</a>, 
+unveils the importance of figures in writing. 
+There are many types of figures or pictures, and in the field of Earth 
+Science, image figure is one of the most important types. 
+By image figure, I mean a figure composed of matrix, such as</p>
+<div style="text-align: center;"><img alt="https://www.ncdc.noaa.gov/sotc/service/global/map-blended-mntp/201601.gif" height="307" src="https://www.ncdc.noaa.gov/sotc/service/global/map-blended-mntp/201601.gif" width="400" />[Link](https://www.ncdc.noaa.gov/sotc/global/201601) of the 
+image. 
+
+</div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/idl-programming-001/" rel="permalink">IDL programming: control variables in IDL across routines
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-01-31T21:17:00-08:00">January 31, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>IDL, unlike C++, has its own approach and principle when handling variables 
+across routines. These features are often very different with the variable 
+scope within C++. 
+I will try to answer several key questions and prove them using simple demos. 
+Question 1: Will the value of a variable be changed after it’s passed into a 
+function and changed inside? 
+Demo:</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/integrated-groundwater-and-surface-water-006/" rel="permalink">Integrated groundwater and surface water modeling: the appropriate way to prepare the best DEM
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2016-01-25T12:46:00-08:00">January 25, 2016</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>One the most important inputs for groundwater and surface water hydrology 
+modeling is the <a href="https://en.wikipedia.org/wiki/Digital_elevation_model">Digital Elevation 
+Model</a> (DEM).</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/integrated-groundwater-and-surface-005/" rel="permalink">Integrated groundwater and surface water modeling: how to make use of the MODFLOW Listing file
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-11-27T19:13:00-08:00">November 27, 2015</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Whatever version of MODFLOW you are using for groundwater modeling, knowing 
+how to make use of the list file can help a lot to understand what you are 
+actually doing.</p>
+<div> 
+As the official MODFLOW manual document describes: 
+"The Listing File is a key file to which model output is written. As MODFLOW 
+runs, information is written to the Listing File, including much of the input 
+data (as a record of the simulation) and calculated results." 
+And 
+<div><span style="font-size: 11pt;">"The Listing File includes a summary of 
+the <span style="font-size: 11pt;">input data read for all packages. In 
+addition, the Listing File optionally contains calculated head and drawdown 
+<span style="font-size: 11pt;">controlled by layer and time step, and the 
+overall volumetric budget controlled by time step. The Listing File also <span style="font-size: 11pt;">contains information about solver convergence and 
+error messages. Output to other files can include head, <span style="font-size: 11pt;">drawdown, and cell-by-cell flow terms for use in 
+calculations external to the model or in user-supplied applications <span style="font-size: 11pt;">such as plotting programs."<div style="orphans: auto; 
+widows: 1;"><span style="font-size: 11pt;"> 
+<div style="orphans: auto; widows: 1;"><span style="font-size: 
+11pt;">Therefore, the Listing file actually contains a lot of important 
+information.<div style="orphans: auto; widows: 1;">In my point of view, the 
+Listing file is a critical way to examine some important variables and 
+outputs. I will briefly talk about several usage of the Listing file with a 
+few examples.<div style="orphans: auto; widows: 1;"> 
+<div style="orphans: auto; widows: 1;">First, the Listing file can used to 
+output all types of inputs in a readable way. MODFLOW provides several 
+utilities to read different types of data. One of them would be real array 
+data. However, a lot of time, even you have prepared the right data, it may 
+not be in the right format or right order. The executable program will run 
+anyway, but none of the inputs actually makes any sense. You probably are not 
+aware of these types of situation at all. For example, you were supposed to 
+input the initial head for three layers, and you mistakenly messed up the 
+order of the layers. But the program will not give a red alert at all. 
+However, if you output this inputs into the Listing file, it maybe very easy 
+for you to catch this error. Another good example is that when have used 
+specific storage (Ss) when the the specific yield (Sy) is needed. When you 
+looked the Listing file, you can immediately pinpoint this issue. Again, the 
+program will probably not complain when you gave a unusual value because it is 
+still within the range.<div style="orphans: auto; widows: 1;"> 
+<div style="orphans: auto; widows: 1;">Second, one of the most annoying parts 
+of a successful MODFLOW simulation is the convergence. A lot of time has been 
+wasted trying to converge. In fact, the Listing file contains very useful 
+information for you to debug the problem. By looking at the convergence 
+information, you can easily identify which cell is causing the problem and 
+infer the reasons. You can also look at the volume changes of each terms (e.g. 
+stream leakage) to identify the water balance issue. With appropriate 
+adjustments, you can quickly improve the convergence efficiency using the 
+water balance information.<div style="orphans: auto; widows: 1;"> 
+<div style="orphans: auto; widows: 1;">Comments are welcome! <div style="orphans: auto; widows: 1;"> 
+<div style="orphans: auto; widows: 1;"> 
+<div style="orphans: auto; widows: 1;"> 
+<div style="orphans: auto; widows: 1;"> 
+<div style="orphans: auto; widows: 1;"><span style="font-size: 11pt;"><br class="Apple-interchange-newline" /> 
+</span></div></div></div></div></div></div></div></div></div></div></div></div></span></div></span></div></span></span></span></span></span></span></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/spatial-datasets-operations-01/" rel="permalink">Spatial datasets operations: mask raster using region of interest
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  4 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-11-24T17:01:00-08:00">November 24, 2015</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Climate change related studies usually involve spatial datasets extraction 
+from a larger domain. 
+In this article, I will briefly discuss some potential issues and solutions.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/high-performance-computing-002/" rel="permalink">High performance computing: how to run IDL program on a cluster
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-10-29T17:42:00-07:00">October 29, 2015</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>One of the advantages of IDL is that it could be deployed on Linux system, to 
+say a HPC (High Performance Computer). Fortunately my research group have this 
+computational resource to advance my research.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/parameter-estimation-02/" rel="permalink">Parameter estimation: data format in model I/O
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-10-27T10:28:00-07:00">October 27, 2015</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Parameter estimation, also referred as model calibration, usually involves 
+with model simulations with different sets of data and parameters.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/integrated-groundwater-and-surface-water-04/" rel="permalink">Integrated groundwater and surface water modeling: topography effects
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  4 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-10-09T08:16:00-07:00">October 09, 2015</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>This is a talk highly related to my last post on spatial discretization of 
+numerical simulation.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/integrated-groundwater-and-surface-water-03/" rel="permalink">Integrated groundwater and surface water modeling: spatial discretization
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-10-08T06:37:00-07:00">October 08, 2015</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Numerical simulations have to break time and space into increments. For 
+example, weather predictions are usually modeled in hours or days and maps are 
+produced with resolution.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/integrated-groundwater-and-surface-water-02/" rel="permalink">Integrated groundwater and surface water modeling: restore the stream index relationship
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-10-07T09:06:00-07:00">October 07, 2015</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Numerical hydrology models usually require the stream index to be built prior 
+to the actual simulation. 
+It is also good practice to keep them in order so it is much easier to analyse 
+the results.</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/integrated-groundwater-and-surface-water-01/" rel="permalink">Integrated groundwater and surface water modeling: the finite element
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  2 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2015-09-30T17:58:00-07:00">September 30, 2015</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Numerical simulations of groundwater and surface water movements are 
+essentially dealing with the finite element in the spatial domain.</p>
+<div>This finite element could be in a variety of forms including cubic, node 
+and pixel. This depends upon the methods used to conceptualize this physical 
+world.<div>The dimension of these finite elements varies as well since they 
+are characterized by spatial resolution.<div>For spatial distributed 
+hydrologic models, regardless of groundwater or surface water models, these 
+finite elements interact with each other governed by derived continuity 
+equations such as Richard's equation.<div> 
+<div>Consequently, in most groundwater models, the finite element would 
+interact with 6 neighbors in a 3D model. However, in a spatial distributed 
+surface water model, the finite element may interact with 8 neighbors or 4 
+neighbors. Even within one model, different assumptions are possibly made in 
+different scenarios. <div>Then the question is are these assumptions 
+contradict each other? Or why it should have 8 neighbor instead of 4 and so 
+on?<div> 
+<div>Let's first take a look at some real life examples using some existing 
+models. For groundwater modeling, in MODFLOW, which is one of the most widely 
+used groundwater models, each finite element can interact with 4 horizontal 
+neighbors and 2 vertical neighbors. So there are 6 neighbors in total. 
+Similarly for surface modeling, in SWAT/PRMS, each finite element can interact 
+with 4 or 8 neighbors. <div> 
+<div>A close look at some watershed delineation process will unveil that even 
+though water flow direction is predefined using digital elevation model (DEM) 
+aspect, flow itself in fact is distributed in more than one direction using 
+fractions. <div> 
+<div>An important reference of how this flow direction is produced is 
+explained 
+here:<div>[http://help.arcgis.com/EN/arcgisdesktop/10.0/help/index.html#//009z00000063000000.htm](http://help.arcgis.com/EN/arcgisdesktop/10.0/help/index.html#//009z00000063000000.htm)<div> 
+<div>Now it looks plausible that 8 neighbor would better describe the flow 
+path than 4 neighbors. But why?<div>And why this is not implemented in 
+groundwater modeling? Also what plays a factor in these assumptions? (spatial 
+resolution?) 
+
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
 <h2>publications</h2>
 
 <div class="list__item">

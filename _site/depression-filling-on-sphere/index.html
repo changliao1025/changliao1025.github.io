@@ -1,0 +1,29 @@
+<p>One of my interests and projects is about flow routing on a global scale or a 
+sphere. 
+This work has several major challenges awaiting to be resolved. Here I will 
+explain a few of them.</p>
+
+<p>I want to provide some background, we are not using traditional square mesh to 
+cover the sphere. Instead, we will be using DGGS grid, and most grids will be 
+hexagons, you can take a look at my previous posts.</p>
+
+<ol>
+  <li>On a sphere, land/continents are not continuous, a landmass may be broken 
+into several islands.&lt;div class="separator" style="clear: both; text-align: 
+center;"&gt;<a href="https://1.bp.blogspot.com/-UYAbZgBx1VY/XqtKSNE7stI/AAAAAAAA9WE/FWTgkby924I5GwlmQzEAA-DGdVcMfOi5gCLcBGAsYHQ/s1600/island.jpg"><img border="0" data-original-height="863" data-original-width="1600" height="215" src="https://1.bp.blogspot.com/-UYAbZgBx1VY/XqtKSNE7stI/AAAAAAAA9WE/FWTgkby924I5GwlmQzEAA-DGdVcMfOi5gCLcBGAsYHQ/s400/island.jpg" width="400" /></a>&lt;div 
+class="separator" style="clear: both; text-align: center;"&gt;</li>
+  <li>
+    <div class="separator" style="clear: both; text-align: left;">Because of 
+the unique structure of hexagon mesh, parallel computing becomes difficult. It 
+is not straightforward to decompose the global mesh into regular tiles similar 
+to square grid mesh. 
+</div>
+  </li>
+  <li>
+    <div class="separator" style="clear: both; text-align: left;">DEM 
+remap/resamaple method needs to be improved. Current DEM dataset is still in 
+the square grid format, a rigorous remap method is needed to assign elevation 
+to new hexagon grids. 
+</div>
+  </li>
+</ol>
