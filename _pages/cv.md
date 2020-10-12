@@ -57,8 +57,7 @@ Skills
 * Skilled (2005~present) in programming (C/C++, Fortran, Python, and IDL, etc.).
 * Skilled (2005~present) in spatial dataset operations. 
 * Skilled (2009~present) in computer visualization (IDL/Python graphics and VTK, etc.).
-* Teaching assistant for Purdue EAS 116 Earthquakes and Volcanoes.
-* Leadership experiences in multiple projects and organizations.
+
 
 
 Publications
@@ -86,11 +85,13 @@ Talks
   
 Teaching
 ======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+
+* Teaching assistant for Purdue EAS 116 Earthquakes and Volcanoes.
+* Leadership experiences in multiple projects and organizations.
+
   
 Service and leadership
 ======
+* American Geophysical Union 
 * Reviewer in several scientific journals
 

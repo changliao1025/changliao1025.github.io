@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Chang Liao / Github Page"
+title                    : "Earth Science"
 title_separator          : "-"
 name                     : &name "Chang Liao"
 description              : &description "personal description"
@@ -175,7 +175,7 @@ kramdown:
 
 # Collections
 collections:
-  teaching:
+  software:
     output: true
     permalink: /:collection/:path/
   publications:
@@ -206,10 +206,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _teaching
+  # _software
   - scope:
       path: ""
-      type: teaching
+      type: software
     values:
       layout: single
       author_profile: true
