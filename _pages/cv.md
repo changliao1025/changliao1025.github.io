@@ -25,7 +25,7 @@ Work experience
     * Hillslope-based subsurface lateral groundwater flow model (H2SC) in the Next-Generation Ecosystem Experiments (NGEE)-Tropics project. 
     * Model for Prediction Across Scales (MPAS) mesh-based flow routing model in DOE’s Integrated Coastal Modeling (ICoM) project. 
 * 2017-2020: Postdoc Associate
-  * Github University
+  * Pacific Northwest National Laboratory
   * Projects: 
     * Hillslope-based subsurface lateral groundwater flow model (H2SC) in the Next-Generation Ecosystem Experiments (NGEE)-Tropics project. This model is implemented within Department Of Energy (DOE)’s Energy Exascale Earth System Model (E3SM).  
     * Hexagonal grid-based surface hydrology watershed delineation model (HexWatershed) in a Laboratory Directed Research and Development (LDRD) project. This model resolves several long-standing issues in hydrology and closes the gap between watershed hydrology and global scale hydrology.
