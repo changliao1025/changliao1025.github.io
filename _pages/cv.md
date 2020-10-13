@@ -12,14 +12,14 @@ redirect_from:
 Education
 ======
 * B.S. School of Remote Sensing and Information Engineering, Wuhan University, 2009
-* M.S. School of Remote Sensing and Information Engineering, Wuhan University. 2011
+* M.S. School of Remote Sensing and Information Engineering, Wuhan University. 2011  
        Institute of Geographic Sciences and Natural Resources Research, Beijing. 2011
 * Ph.D Department of Earth, Atmospheric, and Planetary Sciences, Purdue University. 2017
 
 Work experience
 ======
 
-* 2020-: Earth Scientist
+* 2020-Present: Earth Scientist
   * Pacific Northwest National Laboratory
   * Projects: 
     * Hillslope-based subsurface lateral groundwater flow model (H2SC) in the Next-Generation Ecosystem Experiments (NGEE)-Tropics project. 
@@ -31,7 +31,7 @@ Work experience
     * Hexagonal grid-based surface hydrology watershed delineation model (HexWatershed) in a Laboratory Directed Research and Development (LDRD) project. This model resolves several long-standing issues in hydrology and closes the gap between watershed hydrology and global scale hydrology.
     * Model for Prediction Across Scales (MPAS) mesh-based flow routing model in DOE’s Integrated Coastal Modeling (ICoM) project. This model provides a consistent framework to couple land, river and ocean using a unified mesh.
     * Pollutant transport using integrated surface water and groundwater model simulation (SWAT-MODFLOW-MT3D). 
-  * Supervisor: L Ruby Leung
+  * Supervisor: L. Ruby Leung
 * 2012-2017: Research Assistant
   * Purdue University
   * Projects: 
@@ -59,7 +59,6 @@ Skills
 * Skilled (2009~present) in computer visualization (IDL/Python graphics and VTK, etc.).
 
 
-
 Publications
 ======
   <ul>{% for post in site.publications %}
@@ -68,14 +67,9 @@ Publications
 
 Softwares and Applications
 ======
-* A three-dimensional water and carbon cycle ecosystem model (ECO3D) (C++ and OpenMP, documented by Doxygen).
-* A hexagonal grid-based surface watershed delineation model, HexWatershed (The first watershed scale model using hexagonal mesh; C++, based on DGGRID and RichDEM, documented by Doxygen).
-* A global scale river routing model based on HexWatershed (The first global river network using hexagonal mesh).
-* A USGS Modular Finite-Difference Ground-Water Flow Model (MODFLOW) model preparation system (IDL and Python).
-* A USGS Precipitation Runoff Modeling System (PRMS) model preparation system (IDL and Python).
-* An advanced publication-ready cartography graphics library (IDL, 90% of figures in my publications were directly produced using this library).
-* An advanced automated spatial data processing library for GIS/RS datasets (IDL and ESRI ArcObject; most data processing in my publications was processed using this library).
-
+  <ul>{% for post in site.software %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
   
 Talks
 ======

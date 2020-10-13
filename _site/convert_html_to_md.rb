@@ -2,7 +2,7 @@
 # (http://import.jekyllrb.com/docs/blogger/). It converts the HTML output from 
 # Jekyll's import into Markdown and cleans up as much of it as possible.
 
-FILES_TO_CONVERT_GLOB = "_posts/*.html"
+FILES_TO_CONVERT_GLOB = "_drafts/*.html"
 WRAP_LENGTH = 80
 TO_REPLACE = {
   "<br />" => "\n",
