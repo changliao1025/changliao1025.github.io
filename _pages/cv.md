@@ -67,7 +67,7 @@ Publications
 
 Softwares and Applications
 ======
-  <ul>{% for post in site.software %}
+  <ul>{% for post in site.softwares %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   

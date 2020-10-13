@@ -1,8 +1,8 @@
 ---
 title: "Earth system graphic library"
-collection: software
+collection: softwares
 type: "Compute Graphic"
-permalink: /software/eslib
+permalink: /softwares/eslib
 venue: "PNNL"
 date: 2020-04-01
 location: "Richland, WA, USA"

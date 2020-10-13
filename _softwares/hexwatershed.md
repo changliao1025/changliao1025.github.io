@@ -1,8 +1,8 @@
 ---
 title: "HexWatershed"
-collection: software
+collection: softwares
 type: "Hydrology"
-permalink: /software/hexwatershed
+permalink: /softwares/hexwatershed
 venue: "PNNL"
 date: 2020-04-01
 location: "Richland, WA, USA"

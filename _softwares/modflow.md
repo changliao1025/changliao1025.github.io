@@ -1,8 +1,8 @@
 ---
 title: "MODFLOW"
-collection: software
+collection: softwares
 type: "Hydrology"
-permalink: /software/modflow
+permalink: /softwares/modflow
 venue: "PNNL"
 date: 2020-04-01
 location: "Richland, WA, USA"

@@ -15,7 +15,7 @@ redirect_from:
 * Collections of pages are .md or .html files in:
   * _publications/
   * _posts/
-  * _software/
+  * _softwares/
   * _talks/
 * Footer: _includes/footer.html
 * Static files (like PDFs): /files/

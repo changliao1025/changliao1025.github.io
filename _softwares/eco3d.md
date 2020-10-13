@@ -1,8 +1,8 @@
 ---
 title: "ECO3D"
-collection: software
+collection: softwares
 type: "Ecosystem"
-permalink: /software/eco3d
+permalink: /softwares/eco3d
 venue: "PNNL"
 date: 2020-04-01
 location: "Richland, WA, USA"
