@@ -4,15 +4,13 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am an Earth scientist at the Pacific Northwest National Laboratory.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+The objective of my research is to establish operational and flexible frameworks to investigate and predict the water and carbon cycle dynamics under the changing climate. 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+My research interests include:
+* Integrated/three-dimensional water, carbon, and nutrients cycle modeling; 
+* Integrated surface water and groundwater modeling;
+* Artificial intelligence (AI) in land surface modeling;
+* Ecosystem modeling; and
+* Snow dynamics and permafrost degradation.
