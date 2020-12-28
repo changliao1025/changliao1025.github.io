@@ -1,4 +1,8 @@
-# Introduction
+---
+layout: page
+title: About
+permalink: /about/
+---
 
 I am an Earth scientist at the Pacific Northwest National Laboratory.
 
@@ -10,4 +14,3 @@ My research interests include:
 * Artificial intelligence (AI) in land surface modeling;
 * Ecosystem modeling; and
 * Snow dynamics and permafrost degradation.
-
