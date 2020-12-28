@@ -3,7 +3,6 @@ layout: page
 title: About
 permalink: /about/
 ---
-
 I am an Earth scientist at the Pacific Northwest National Laboratory.
 
 The objective of my research is to establish operational and flexible frameworks to investigate and predict the water and carbon cycle dynamics under the changing climate. 
