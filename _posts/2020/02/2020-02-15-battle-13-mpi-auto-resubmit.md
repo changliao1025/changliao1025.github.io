@@ -10,9 +10,9 @@ blogger_orig_url: https://codedoesnotlie.blogspot.com/2020/02/battle-13-mpi-auto
 ---
 
 
-1. Prepare a simple checkpoint file; 
-1. Finish the main program, which only accept one parameter as input; 
-1. In the main program, check the range from checkpoint; 
-1. Finish the run_task function, which runs elemental task; 
-1. Prepare the entrance job script; 
-1. Submit the job. 
+* Prepare a simple checkpoint file; 
+* Finish the main program, which only accept one parameter as input; 
+* In the main program, check the range from checkpoint; 
+* Finish the run_task function, which runs elemental task; 
+* Prepare the entrance job script; 
+* Submit the job. 

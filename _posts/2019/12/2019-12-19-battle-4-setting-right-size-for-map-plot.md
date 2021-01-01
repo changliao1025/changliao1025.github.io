@@ -13,19 +13,21 @@ blogger_id: tag:blogger.com,1999:blog-3189999653395802666.post-58069706221900747
 blogger_orig_url: https://codedoesnotlie.blogspot.com/2019/12/battle-4-setting-right-size-for-map-plot.html
 ---
 
-<div>How to control the size of text so they look pleasantly for readers?<div> 
-<div>Here is a solution for map object:<div> 
-charsize = cgdefcharsize() 
-<div> 
-main title: charsize  * 1.0 
-cgmap_grid: charsize  * 0.7 
-<div>longitude: charsize  * 0.6<div>latitude: charsize  * 0.6<div>colorbar 
-title: charsize  * 0.7<div>colorbar label: charsize  * 0.8<div> 
-<div>To illustrate:<div class="separator" style="clear: both; text-align: 
-center;">[<img border="0" data-original-height="1600" 
-data-original-width="1581" height="640" 
-src="https://1.bp.blogspot.com/-ENVgaC09eP0/XefyGjQPPjI/AAAAAAAA5wE/9ld635BzLcg0GCTXpoIMZy_uARNNkDnpACLcBGAsYHQ/s640/dem.jpg" 
-width="632" 
-/>](https://1.bp.blogspot.com/-ENVgaC09eP0/XefyGjQPPjI/AAAAAAAA5wE/9ld635BzLcg0GCTXpoIMZy_uARNNkDnpACLcBGAsYHQ/s1600/dem.jpg)<div 
-class="separator" style="clear: both; text-align: left;">Later I will provide 
-other examples for other type of plots. <div> 
+How to control the size of text so they look pleasantly for readers?
+
+Here is a solution for map object:
+
+charsize = cgdefcharsize()
+
+main title: charsize  * 1.0
+cgmap_grid: charsize  * 0.7
+longitude: charsize  * 0.6
+latitude: charsize  * 0.6
+colorbar title: charsize  * 0.7
+colorbar label: charsize  * 0.8
+
+To illustrate:
+![Figure 1](https://github.com/changliao/changliao.github.io/blob/main/_figure/dem.png?raw=true)
+
+
+Later I will provide other examples for other type of plots. 

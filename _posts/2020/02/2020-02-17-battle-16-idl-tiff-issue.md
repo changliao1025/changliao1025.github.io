@@ -11,36 +11,27 @@ blogger_id: tag:blogger.com,1999:blog-3189999653395802666.post-71023802624670138
 blogger_orig_url: https://codedoesnotlie.blogspot.com/2020/02/battle-16-idl-tiff-issue.html
 ---
 
-ENVI function does not produce the GeoTiff by default. 
-We need another function to convert it to GeoTiff. 
-For example: 
+EENVI function does not produce the GeoTiff by default.
+We need another function to convert it to GeoTiff.
+For example:
 
-<div style="line-height: 18px;"><div style="background-color: #1e1e1e; color: 
-#d4d4d4; font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; 
-font-size: 12px; white-space: pre;"><span style="color: 
-#dcdcaa;">ENVI_MASK_APPLY_DOIT, /in_memory, DIMS = dims_mask, $<div 
-style="background-color: #1e1e1e; color: #d4d4d4; font-family: Menlo, Monaco, 
-&quot;Courier New&quot;, monospace; font-size: 12px; white-space: pre;">       
-                          FID = fid_in, $<div style="background-color: 
-#1e1e1e; color: #d4d4d4; font-family: Menlo, Monaco, &quot;Courier New&quot;, 
-monospace; font-size: 12px; white-space: pre;">                                
- M_FID = fid_mask, M_POS = m_pos, $<div style="background-color: #1e1e1e; 
-color: #d4d4d4; font-family: Menlo, Monaco, &quot;Courier New&quot;, 
-monospace; font-size: 12px; white-space: pre;">                                
- POS = pos, $<div style="background-color: #1e1e1e; color: #d4d4d4; 
-font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 
-12px; white-space: pre;">                                 R_FID = fid_out, 
-$<div style="background-color: #1e1e1e; color: #d4d4d4; font-family: Menlo, 
-Monaco, &quot;Courier New&quot;, monospace; font-size: 12px; white-space: 
-pre;">                                 VALUE = missing_value 
-<div style="background-color: #1e1e1e; color: #d4d4d4; font-family: Menlo, 
-Monaco, &quot;Courier New&quot;, monospace; font-size: 12px; white-space: 
-pre;"><span style="color: #dcdcaa;">ENVI_FILE_QUERY, fid_out, dims=dims<div 
-style="background-color: #1e1e1e; color: #d4d4d4; font-family: Menlo, Monaco, 
-&quot;Courier New&quot;, monospace; font-size: 12px; white-space: pre;"><span 
-style="color: #dcdcaa;">ENVI_OUTPUT_TO_EXTERNAL_FORMAT, fid = fid_out 
-,OUT_NAME = sFilename_out,$<div style="background-color: #1e1e1e; color: 
-#d4d4d4; font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; 
-font-size: 12px; white-space: pre;">              dims=dims<div 
-style="background-color: #1e1e1e; color: #d4d4d4; font-family: Menlo, Monaco, 
-&quot;Courier New&quot;, monospace; font-size: 12px; white-space: pre;"> 
+
+ENVI_MASK_APPLY_DOIT, /in_memory, DIMS = dims_mask, $
+
+                                 FID = fid_in, $
+
+                                 M_FID = fid_mask, M_POS = m_pos, $
+
+                                 POS = pos, $
+
+                                 R_FID = fid_out, $
+
+                                 VALUE = missing_value
+
+
+ENVI_FILE_QUERY, fid_out, dims=dims
+
+ENVI_OUTPUT_TO_EXTERNAL_FORMAT, fid = fid_out ,OUT_NAME = sFilename_out,$
+
+              dims=dims
+

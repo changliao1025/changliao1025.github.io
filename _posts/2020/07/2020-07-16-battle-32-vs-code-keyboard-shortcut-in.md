@@ -15,10 +15,7 @@ blogger_orig_url: https://codedoesnotlie.blogspot.com/2020/07/battle-32-vs-code-
 ---
 
 
-<div class="separator" style="clear: both; text-align: center;">Somehow in the 
-VNC environment, the "u" becomes unknown when I was trying to set up the 
-shortcut.<div class="separator" style="clear: both; text-align: center;">[<img 
-border="0" data-original-height="334" data-original-width="794" height="270" 
-src="https://1.bp.blogspot.com/-ziFi5qa600k/XxDf-TzQe2I/AAAAAAAADa0/LGbycY95Zzg9_htvYshLY-pfuv-9uljHgCLcBGAsYHQ/w640-h270/vsc.png" 
-width="640" 
-/>](https://1.bp.blogspot.com/-ziFi5qa600k/XxDf-TzQe2I/AAAAAAAADa0/LGbycY95Zzg9_htvYshLY-pfuv-9uljHgCLcBGAsYHQ/s794/vsc.png) 
+Somehow in the VNC environment, the "u" becomes unknown when I was trying to set up the shortcut.
+
+
+![Figure 1](https://github.com/changliao/changliao.github.io/blob/main/_figure/vnc_u.png?raw=true)

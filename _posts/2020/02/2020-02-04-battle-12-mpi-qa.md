@@ -11,6 +11,7 @@ blogger_orig_url: https://codedoesnotlie.blogspot.com/2020/02/battle-12-mpi-qa.h
 
 I don't alway have to deal with MPI myself, but I recently used it for several 
 projects. 
-<div>I have several questions to share:<div>1. Does master (rank=0) always the 
-last to finish? 
-1. Should code wait for all slaves to actually receive the broadcast message? 
+I have several questions to share:
+
+* Does master (rank=0) always the last to finish? 
+* Should code wait for all slaves to actually receive the broadcast message? 

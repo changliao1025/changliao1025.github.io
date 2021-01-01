@@ -14,15 +14,8 @@ blogger_orig_url: https://codedoesnotlie.blogspot.com/2020/02/battle-19-depressi
 ---
 
 
-<div>Question 1:<div>How to break a land into several parts? 
-Answer: 
-The original solution does not restrict to single watershed: 
-<span style="background-color: white; color: #24292e; font-family: 
-SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; 
-font-size: 12px; white-space: pre;"> iWatershed = iWatershed + <span 
-class="pl-c1" style="background-color: white; box-sizing: border-box; color: 
-#005cc5; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, 
-Menlo, monospace; font-size: 12px; white-space: pre;">1<span 
-style="background-color: white; color: #24292e; font-family: SFMono-Regular, 
-Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 12px; 
-white-space: pre;">; 
+Question 1:
+How to break a land into several parts?
+Answer:
+The original solution does not restrict to single watershed:
+ iWatershed = iWatershed + 1;

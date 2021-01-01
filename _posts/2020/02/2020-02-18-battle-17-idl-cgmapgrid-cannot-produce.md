@@ -22,5 +22,5 @@ The function use global latitude and longitude to setup:
 
 Later on, when the script draw all the label, the loop is like this: 
 
-FOR i=0,n_lats-1 DO BEGIN<div> 
-<div>So, a small increment will lead to long run time. 
+FOR i=0,n_lats-1 DO BEGIN
+So, a small increment will lead to long run time. 

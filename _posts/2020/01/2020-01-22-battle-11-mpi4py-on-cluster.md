@@ -13,26 +13,26 @@ blogger_id: tag:blogger.com,1999:blog-3189999653395802666.post-33598436791427322
 blogger_orig_url: https://codedoesnotlie.blogspot.com/2020/01/battle-11-mpi4py-on-cluster.html
 ---
 
-One of my Python scripts is taking too long to run, which exceeds the short 
-queue. 
-<div>I decided to use MPI, and mpi4py seems to be a good choice.<div>But there 
-are many issue when I first used it.<div> 
-<div>After many attempts, I found at least one way to use it.<div> 
-<div>Some ideas are from here: 
-[https://researchcomputing.princeton.edu/mpi4py](https://researchcomputing.princeton.edu/mpi4py)<div> 
-<div>1. ssh into the cluster 
-1. load anaconda into system 
-1. create a conda environment for this task mpienv 
-1. activate the environment 
-1. load compiler, I used gcc 
-1. load openmpi 
-1. export MPICC="$(which mpicc)" 
-1. pip install mpi4py,  you should not use conde-forge channel because it will 
-install mpi again. 
-1. test with python -c "import mpi4py" 
-<div>So earlier I had issues and there are several lessons:<div>1. You should 
-load before installing mpi4py 
-1. Because we need to use system mpi, we need to load mpi after activate the 
-cnvironment. 
-<div> 
-<div>Good luck! 
+One of my Python scripts is taking too long to run, which exceeds the short queue.
+I decided to use MPI, and mpi4py seems to be a good choice.
+But there are many issue when I first used it.
+
+After many attempts, I found at least one way to use it.
+
+Some ideas are from here: https://researchcomputing.princeton.edu/mpi4py
+
+* ssh into the cluster
+* load anaconda into system
+* create a conda environment for this task mpienv
+* activate the environment
+* load compiler, I used gcc
+* load openmpi
+* export MPICC="$(which mpicc)"
+* pip install mpi4py,  you should not use conde-forge channel because it will install mpi again.
+* test with python -c "import mpi4py"
+
+So earlier I had issues and there are several lessons:
+You should load before installing mpi4py
+Because we need to use system mpi, we need to load mpi after activate the cnvironment.
+
+Good luck!

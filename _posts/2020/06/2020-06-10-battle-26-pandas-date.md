@@ -12,15 +12,7 @@ blogger_orig_url: https://codedoesnotlie.blogspot.com/2020/06/battle-26-pandas-d
 ---
 
 
-<div class="separator" style="clear: both; text-align: center;"> 
-<div class="separator" style="clear: both; text-align: left;">The pandas date 
-function seems to be very complex! For example:<div class="separator" 
-style="clear: both; text-align: left;"> 
-<div class="separator" style="clear: both; text-align: center;">[<img 
-border="0" data-original-height="148" data-original-width="433" 
-src="https://1.bp.blogspot.com/-rv3z1Jt1o-Q/Xt_ZzE7dtjI/AAAAAAAA-AQ/jmOlJHRNFl4ZBAYkVw4r-1E3SvMSxi4jACK4BGAsYHg/d/pandas.png" 
-/>](https://1.bp.blogspot.com/-rv3z1Jt1o-Q/Xt_ZzE7dtjI/AAAAAAAA-AQ/jmOlJHRNFl4ZBAYkVw4r-1E3SvMSxi4jACK4BGAsYHg/s433/pandas.png)<div 
-class="separator" style="clear: both; text-align: left;">The OOP structure is 
-a little bit of overkill.<div class="separator" style="clear: both; 
-text-align: left;"> 
-<div class="separator" style="clear: both; text-align: left;"> 
+The pandas date function seems to be very complex! For example:
+![Figure 1](https://github.com/changliao/changliao.github.io/blob/main/_figure/pandas_date.png?raw=true)
+
+The OOP structure is a little bit of overkill.

@@ -16,27 +16,23 @@ blogger_orig_url: https://codedoesnotlie.blogspot.com/2020/04/battle-22-scatter-
 ---
 
 
-<div class="separator" style="clear: both; text-align: left;">How to produce a 
-scatter alike plot using Matplotlib without using SNS or other packages?<div 
-class="separator" style="clear: both; text-align: center;">[<img border="0" 
-data-original-height="1543" data-original-width="1600" height="385" 
-src="https://1.bp.blogspot.com/-WiPcJwr78Ww/XpiYIoQOpHI/AAAAAAAA8uo/5FhDkcjmWYcrGg9bCvQ1yUmOpKjwxh1QQCLcBGAsYHQ/s400/sur_slp-zwt_scatterplot.png" 
-width="400" 
-/>](https://1.bp.blogspot.com/-WiPcJwr78Ww/XpiYIoQOpHI/AAAAAAAA8uo/5FhDkcjmWYcrGg9bCvQ1yUmOpKjwxh1QQCLcBGAsYHQ/s1600/sur_slp-zwt_scatterplot.png)<div 
-class="separator" style="clear: both; text-align: left;">Here are several 
-issues we need to consider and corresponding solutions (later):<div 
-class="separator" style="clear: both; text-align: left;">1. Setup the axes 
-(there are 3 ax object here) positions; 
-1. Control the tick range and label; 
-1. Fix the overlap at intersection origin; 
-1. Choose a good color map for density plot; 
-1. Choose the counter alike density plot; 
-1. Setup KDE plot with shade; 
-1. Hide KDE plot tick label; 
-1. Set up KDE plot grid; 
-1. Set up KDE plot tick intervals; 
-1. Set up a vertical KDE plot; 
-1. Compatibility between density plot and KDE plot tick intervals. 
-<div>This plot is inspired by sns.jointplot and python-graph-gallery.com.<div> 
-<div>Thank you. 
-<span id="goog_399399436"><span id="goog_399399437"> 
+How to produce a scatter alike plot using Matplotlib without using SNS or other packages?
+
+![Figure 1](https://github.com/changliao/changliao.github.io/blob/main/_figure/sur_slp-zwt_scatterplot.png?raw=true)
+
+
+Here are several issues we need to consider and corresponding solutions (later):
+Setup the axes (there are 3 ax object here) positions;
+Control the tick range and label;
+Fix the overlap at intersection origin;
+Choose a good color map for density plot;
+Choose the counter alike density plot;
+Setup KDE plot with shade;
+Hide KDE plot tick label;
+Set up KDE plot grid;
+Set up KDE plot tick intervals;
+Set up a vertical KDE plot;
+Compatibility between density plot and KDE plot tick intervals.
+This plot is inspired by sns.jointplot and python-graph-gallery.com.
+
+Thank you.

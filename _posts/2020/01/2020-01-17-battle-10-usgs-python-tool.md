@@ -22,7 +22,7 @@ https://pypi.org/project/HydroFunctions/
 
 A suite of convenience functions for exploring water data in a Jupyter 
 Notebook. 
-<div> 
+
 https://github.com/stijnvanhoey/hydropy 
 https://github.com/inkenbrandt/WellApplication 
 

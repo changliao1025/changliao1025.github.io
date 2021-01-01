@@ -15,63 +15,37 @@ blogger_id: tag:blogger.com,1999:blog-3189999653395802666.post-71400570191626843
 blogger_orig_url: https://codedoesnotlie.blogspot.com/2019/10/battle-2-python-submit-slurm-job.html
 ---
 
+Programmers are supposed to be lazy, like Emacs user wants to do everything within Emacs because it can be an operating system.
 
-Programmers are supposed to be lazy, like Emacs user wants to do everything 
-within Emacs because it can be an operating system. 
+While I prefer to do everything within VS Code/Python because it can almost do everything I need for my programming tasks.
 
-While I prefer to do everything within VS Code/Python because it can almost do 
-everything I need for my programming tasks. 
+Recently I wrote a small Python package to deal with E3SM simulation system. I am happy with most part of the scripts, especially I have recently updated the structure of the cross-platform global variables (https://www.changliao.us/2019/10/develop-python-scripts-cross-platform.html).
 
-Recently I wrote a small Python package to deal with E3SM simulation system. I 
-am happy with most part of the scripts, especially I have recently updated the 
-structure of the cross-platform global variables 
-([https://www.changliao.us/2019/10/develop-python-scripts-cross-platform.html](https://www.changliao.us/2019/10/develop-python-scripts-cross-platform.html)). 
+But I also encountered some issue with the job submission step. Basically, the job submission step does not load the desired environmental variable, which I placed in the .bash_profile.
 
-But I also encountered some issue with the job submission step. Basically, the 
-job submission step does not load the desired environmental variable, which I 
-placed in the .bash_profile. 
+It is actually more complex than that because my workflow is a little bit of long:
 
-It is actually more complex than that because my workflow is a little bit of 
-long: 
+I use Visual Studio Code to edit Python code directly using Remote Development (https://code.visualstudio.com/docs/remote/remote-overview)
+The command (case.submit) (https://github.com/ESMCI/cime) which I intend to run seems to require some environment settings (ulimit -s unlimited, etc.)
+So in order to run this command, I have several options: 
+I can use os.system (https://docs.python.org/3/library/os.html#os.system)
+I can use subprocess (https://docs.python.org/3/library/subprocess.html)
 
-1. I use Visual Studio Code to edit Python code directly using Remote 
-Development 
-([https://code.visualstudio.com/docs/remote/remote-overview](https://code.visualstudio.com/docs/remote/remote-overview)) 
-1. The command (case.submit) 
-([https://github.com/ESMCI/cime](https://github.com/ESMCI/cime)) which I 
-intend to run seems to require some environment settings (ulimit -s unlimited, 
-etc.) 
-<div>So in order to run this command, I have several options: <div>1. I can 
-use os.system 
-([https://docs.python.org/3/library/os.html#os.system](https://docs.python.org/3/library/os.html#os.system)) 
-1. I can use subprocess 
-([https://docs.python.org/3/library/subprocess.html](https://docs.python.org/3/library/subprocess.html)) 
+With the latter one is preferred, I can use subprocess.call(), subprocess.run(), or subprocess.popen() to do this.
 
-With the latter one is preferred, I can use subprocess.call(), 
-subprocess.run(), or subprocess.popen() to do this. 
-<div> 
-<div>The job crashed within a few second because of memory issue, which is 
-again because the .bash_profile was not loaded.<div> 
-<div>The reason is that by default, the subprocess will generate a non-login, 
-non-interactive shell to run the command. And this shell will not load the 
-.bash_profile because ".bash_profile is executed for login shells, while 
-.bashrc is executed for interactive non-login shells." 
-([Link](https://apple.stackexchange.com/questions/51036/what-is-the-difference-between-bash-profile-and-bashrc))<div> 
-This is also similar to this 
-[question](https://stackoverflow.com/questions/12060863/python-subprocess-call-a-bash-alias). 
-The solution is also presented in the question. So I edited the .bashrc file 
-to include the environmental variables. Then I can call the command using 
-either:<div>1. <span style="color: red;">p = subprocess.Popen(sCommand, shell= 
-True, executable='/bin/interactive_bash' ), or 
-1. <span style="color: red;">p = subprocess.Popen(['/bin/bash', '-i', '-c', 
-sCommand]) 
-<div>Basically the above method created an interactive non-login shell so it 
-will load the .bashrc file.<div> 
-<div>Problem solved.<div> 
-<div>Bouns: <div>If you want to access terminal with .bash_profile loaded 
-directly within VS Code, you can try 
-[this](https://code.visualstudio.com/docs/editor/integrated-terminal):<i>You 
-can pass arguments to the shell when it is launched. 
-For example, to enable running bash as a login shell (which runs 
-.bash_profile), pass in the -l argument (with double quotes):</i> 
-Good luck! 
+The job crashed within a few second because of memory issue, which is again because the .bash_profile was not loaded.
+
+The reason is that by default, the subprocess will generate a non-login, non-interactive shell to run the command. And this shell will not load the .bash_profile because ".bash_profile is executed for login shells, while .bashrc is executed for interactive non-login shells." (Link)
+
+This is also similar to this question. The solution is also presented in the question. So I edited the .bashrc file to include the environmental variables. Then I can call the command using either:
+p = subprocess.Popen(sCommand, shell= True, executable='/bin/interactive_bash' ), or
+p = subprocess.Popen(['/bin/bash', '-i', '-c', sCommand])
+Basically the above method created an interactive non-login shell so it will load the .bashrc file.
+
+Problem solved.
+
+Bouns: 
+If you want to access terminal with .bash_profile loaded directly within VS Code, you can try this:
+You can pass arguments to the shell when it is launched.
+For example, to enable running bash as a login shell (which runs .bash_profile), pass in the -l argument (with double quotes):
+Good luck!
