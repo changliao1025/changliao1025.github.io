@@ -33,6 +33,7 @@ So I need to check all the steps within this subroutine. I used the simple print
 During this process, I was again to identify several errors in the code. For example, 
 
 dArea = grc_pp%area(g) * 1000.0 * 1000.0 !unit is km, convert to m
+
 The grc_pp module unit is not the same with most other modules, a conversion is needed here.
 
 Later on, in the log file I noticed something suspicious:
@@ -42,6 +43,7 @@ severe (408): fort: (3): Subscript #2 of the array HKSAT has value 0 which is le
 e3sm.exe 0000000001E6F05C soilhydrologymod_ 2376
 
 This error information was never caught in earlier debug.
+
 aDummy = hksat(c, jwt(c):nlevbed)
 
 What happened is that the jwt(c) can become 0, which is possible based on another statement:
